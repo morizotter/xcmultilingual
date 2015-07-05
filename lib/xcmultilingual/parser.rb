@@ -1,8 +1,6 @@
 require 'set'
 
 module Xcmultilingual
-  Table = Struct.new("Table", :name, :keys)
-
   class Parser
     def initialize(options)
       @verbose = options[:verbose]
