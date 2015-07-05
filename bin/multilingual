@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
 
-require 'multilingual_cli'
+require 'multilingual'
 
-MultilingualCli::CLI.run([])
+Multilingual::CLI.run([])

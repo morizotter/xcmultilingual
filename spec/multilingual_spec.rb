@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe MultilingualCli do
+describe Multilingual do
   it 'has a version number' do
-    expect(MultilingualCli::VERSION).not_to be nil
+    expect(Multilingual::VERSION).not_to be nil
   end
 
   it 'does something useful' do

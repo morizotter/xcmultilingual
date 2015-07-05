@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'multilingual_cli/version'
+require 'multilingual/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "multilingual_cli"
-  spec.version       = MultilingualCli::VERSION
+  spec.name          = "multilingual"
+  spec.version       = Multilingual::VERSION
   spec.authors       = ["Naoki Morita"]
   spec.email         = ["namorit@gmail.com"]
 
