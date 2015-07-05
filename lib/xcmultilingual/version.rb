@@ -1,3 +1,3 @@
-module Multilingual
+module Xcmultilingual
   VERSION = "0.1.0"
 end

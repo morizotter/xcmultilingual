@@ -1,7 +1,7 @@
-require 'multilingual'
+require 'xcmultilingual'
 require 'thor'
 
-module Multilingual
+module Xcmultilingual
   class CLI < Thor
     class_option :verbose, :type => :boolean
 
@@ -14,13 +14,13 @@ module Multilingual
       p "End output hello" if options[:verbose]
     end
 
-    desc "update", "update Multilingual swift file"
+    desc "update", "update xcmultilingual swift file"
     option :destination, :aliases => "-d", :required => true
     def update
       p "update #{options[:destination]}"
     end
 
-    # desc "create", "create Multilingual swift file with given path"
+    # desc "create", "create xcmultilingual swift file with given path"
     # option :destination, :aliases => "-d", :required => true
     # def create
     #   invoke :update

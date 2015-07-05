@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'multilingual/version'
+require 'xcmultilingual/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "multilingual"
-  spec.version       = Multilingual::VERSION
+  spec.name          = "xcmultilingual"
+  spec.version       = Xcmultilingual::VERSION
   spec.authors       = ["Naoki Morita"]
   spec.email         = ["namorit@gmail.com"]
 
