@@ -2,6 +2,4 @@
 
 require 'multilingual_cli'
 
-p MultilingualCli::VERSION
-p MultilingualCli::CLI
-# MultilingualCli::CLI.run([])
+MultilingualCli::CLI.run([])

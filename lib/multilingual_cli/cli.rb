@@ -1,11 +1,7 @@
-# module MultilingualCli
-#   class CLI
-#     def self.run(argv)
-#       p "hello multilingual cli"
-#     end
-#   end
-# end
-
 module MultilingualCli
-  CLI = "DEST"
+  class CLI
+    def self.run(argv)
+      p "hello multilingual cli"
+    end
+  end
 end
