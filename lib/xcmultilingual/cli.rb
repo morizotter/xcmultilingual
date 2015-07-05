@@ -1,6 +1,6 @@
 require 'xcmultilingual'
 require 'thor'
-require 'pathname'
+require 'set'
 
 module Xcmultilingual
   class CLI < Thor
@@ -17,11 +17,24 @@ module Xcmultilingual
     private
 
     def parse_lproj
-      hash = {}
-      Dir.glob("./**/*.lproj") do |path|
-        lproj = File.basename(path)
-        puts "Load: #{lproj}" if options[:verbose]
-        lang = File.basename(lproj, ".lproj")
+      file_paths = {}
+      Dir.glob("./**/*.lproj") do |dir_path|
+        Dir.glob("#{dir_path}/*.strings") do |file_path|
+          filename = File.basename(file_path)
+          puts "LOAD: #{File.basename(dir_path)}/#{File.basename(file_path)}"
+
+          file_paths["#{filename}"] = [] unless file_paths["#{filename}"]
+          file_paths["#{filename}"] << file_path
+        end
+
+        # filename = File.basename(path)
+        # puts "Load: #{filename}" if options[:verbose]
+
+
+        # File.readlines(path, encoding: 'UTF-8').each_with_index do |line, index|
+        #   # puts index
+        #   # puts line
+        # end
 
         # puts "Language: #{lang}" if options[:verbose]
 
@@ -41,6 +54,7 @@ module Xcmultilingual
         #   end
         # end
       end
+      p file_paths
     end
   end
 end
