@@ -1,5 +1,7 @@
 require "multilingual_cli/version"
 
 module MultilingualCli
-  # Your code goes here...
+  def self.hello
+    p "hello multilingual_cli"
+  end
 end
