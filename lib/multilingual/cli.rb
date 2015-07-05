@@ -3,9 +3,13 @@ require 'thor'
 
 module Multilingual
   class CLI < Thor
+
     desc "red WORD", "red word print"
-    def red(word)
-      say(word, :red)
+    option :from
+    def hello(name)
+      p "From #{options[:from]}" if options[:from]
+      p "Hello #{name}"
     end
+
   end
 end

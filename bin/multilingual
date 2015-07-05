@@ -3,4 +3,4 @@
 require 'multilingual'
 
 # Multilingual::CLI.run([])
-Multilingual::CLI.start
+Multilingual::CLI.start(ARGV)
