@@ -1,6 +1,7 @@
 require 'set'
 
 module Xcmultilingual
+  Table = Struct.new("Table", :name, :keys)
 
   class Parser
     def initialize(options)
@@ -22,15 +23,16 @@ module Xcmultilingual
 
       multilingual = []
       file_paths.each do |name, paths|
-        table = { name.to_sym => Set.new }
+        set = Set.new
         paths.each do |path|
           File.readlines(path, encoding: 'UTF-8').each do |line|
             if match = line.match(/^(\".*\")\s*=\s*(\".*\")\;$/)
-              table[name.to_sym] << match[1]
+              set << match[1]
             end
           end
         end
-        multilingual << table
+
+        multilingual << Table.new(name, set.to_a)
       end
       multilingual
     end

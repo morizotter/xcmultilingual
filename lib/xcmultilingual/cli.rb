@@ -13,7 +13,7 @@ module Xcmultilingual
       puts "update #{options[:destination]}"
       parser = Parser.new(options)
       multilingual = parser.parse
-      puts "multilngual: #{multilingual}" # multilngual: [{:Localizable=>#<Set: {"\"HELLO\""}>}, {:Main=>#<Set: {"\"LIZARD\"", "\"DOOR\""}>}]
+      puts "multilngual: #{multilingual}" #multilngual: [#<struct Struct::Table name="Localizable", keys=["\"HELLO\""]>, #<struct Struct::Table name="Main", keys=["\"LIZARD\"", "\"DOOR\""]>]
       writer = Writer.new(options)
       writer.write
     end
