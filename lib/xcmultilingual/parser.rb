@@ -24,8 +24,8 @@ module Xcmultilingual
         set = Set.new
         paths.each do |path|
           File.readlines(path, encoding: 'UTF-8').each do |line|
-            if match = line.match(/^(\".*\")\s*=\s*(\".*\")\;$/)
-              set << match[1]
+            if key = find_key(line)
+              set << key
             end
           end
         end
@@ -33,6 +33,15 @@ module Xcmultilingual
         multilingual << Table.new(name, set.to_a)
       end
       multilingual
+    end
+
+    private
+
+    def find_key(line)
+      if match = line.match(/^(\".*\")\s*=\s*(\".*\")\;$/)
+        return match[1]
+      end
+      nil
     end
   end
 end
