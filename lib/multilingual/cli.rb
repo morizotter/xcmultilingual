@@ -1,7 +1,11 @@
+require 'multilingual'
+require 'thor'
+
 module Multilingual
-  class CLI
-    def self.run(argv)
-      p "hello multilingual cli"
+  class CLI < Thor
+    desc "red WORD", "red word print"
+    def red(word)
+      say(word, :red)
     end
   end
 end

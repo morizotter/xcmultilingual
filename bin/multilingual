@@ -2,4 +2,5 @@
 
 require 'multilingual'
 
-Multilingual::CLI.run([])
+# Multilingual::CLI.run([])
+Multilingual::CLI.start
