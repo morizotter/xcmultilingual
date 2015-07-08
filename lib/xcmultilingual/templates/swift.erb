@@ -1,0 +1,25 @@
+//
+//  Multilingual.swift
+//  xcmultilingual
+//
+//  Created by xcmultilingual on 2015/06/29.
+//
+//
+
+import Foundation
+
+public enum <%= table_name %>: String {
+    case BACK = "BACK"
+    case CANCEL = "CANCEL"
+    case CREATE = "CREATE"
+    case DELETE = "DELETE"
+    case DONE = "DONE"
+    case OK = "OK"
+    case NEXT = "NEXT"
+    case NO = "NO"
+    case YES = "YES"
+
+    public func string() {
+      return NSLocalizedString(rawValue, tableName: "<%= table_name %>", bundle: nil, comment: "<%= comment %>" ?? "")
+    }
+}
