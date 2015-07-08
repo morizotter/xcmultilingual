@@ -13,10 +13,10 @@ module Xcmultilingual
     def update
       parser = Parser.new(options)
       multilingual = parser.parse
-      
+
       writer = Writer.new(options[:destination], multilingual)
-      writer.name = options[:name]
-      writer.verbose = options[:verbose]
+      writer.name = options[:name] || "Multilingual"
+      writer.verbose = options[:verbose] || false
       writer.write
     end
   end

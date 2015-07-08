@@ -7,25 +7,24 @@ module Xcmultilingual
     def initialize(destination, multilingual)
       @destination = destination
       @multilingual = multilingual
+      @filename = File.basename(@destination)
     end
 
     def write
       puts "+ START UPDATING FILES" if @verbose
 
       if !File.exist?("#{@destination}")
-        puts "  There is no destination file."
+        puts "  There is no destination file." if @verbose
+        puts "+ END UPDATING" if @verbose
         return
       end
-
-      filename = File.basename(@destination)
-      name = @name || "Multilingual"
 
       File.open("#{@destination}", "w") do |file|
         template_file = templates_file(default_templates_dir)
         body = ERB.new(File.open(template_file).read, nil, '-').result(binding)
         file.write(body)
         puts "+ END UPDATING FILES\n\n" if @verbose
-        puts "#{body}"
+        puts "#{body}" if @verbose
       end
     end
 
