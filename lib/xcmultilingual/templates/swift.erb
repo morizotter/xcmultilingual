@@ -14,8 +14,8 @@ public enum <%= table.name %>: String {
   case <%= key %> = "<%= key %>"
 <% end -%>
 
-  public func string() {
-    return NSLocalizedString(rawValue, tableName: "<%= table.name %>", bundle: nil, comment: "")
+  public func string() -> String {
+    return NSLocalizedString(rawValue, tableName: "<%= table.name %>", bundle: NSBundle.mainBundle(), value: "\(rawValue)", comment: "")
   }
 }
 
