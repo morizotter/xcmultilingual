@@ -11,7 +11,8 @@ module Xcmultilingual
     option :source, :aliases => "-s"
     option :name, :aliases => "-n"
     def update
-      parser = Parser.new(options)
+      parser = Parser.new()
+      parser.verbose = options[:verbose] || false
       multilingual = parser.parse
 
       writer = Writer.new(options[:destination], multilingual)
