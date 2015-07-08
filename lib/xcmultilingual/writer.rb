@@ -2,9 +2,10 @@ require 'erb'
 
 module Xcmultilingual
   class Writer
-    def initialize(options)
+    def initialize(options, multilingual)
       @verbose = options[:verbose]
       @destination = options[:destination]
+      @multilingual = multilingual
     end
 
     def write
@@ -17,13 +18,7 @@ module Xcmultilingual
 
       File.open("#{@destination}", "w") do |file|
         template_file = templates_file(default_templates_dir)
-        precompile = ERB.new(File.open(template_file).read)
-
-        table_name = "Localizable"
-        comment = "Localizable"
-
-        body = precompile.result(binding)
-
+        body = ERB.new(File.open(template_file).read, nil, '-').result(binding)
         file.write(body)
       end
 

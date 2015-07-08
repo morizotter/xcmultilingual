@@ -38,7 +38,7 @@ module Xcmultilingual
     private
 
     def find_key(line)
-      if match = line.match(/^(\".*\")\s*=\s*(\".*\")\;$/)
+      if match = line.match(/^\"(.*)\"\s*=\s*\"(.*)\"\;$/)
         return match[1]
       end
       nil
