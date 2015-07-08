@@ -10,7 +10,6 @@ module Xcmultilingual
     option :destination, :aliases => "-d", :required => true
     option :source, :aliases => "-s"
     def update
-      puts "update #{options[:destination]}"
       parser = Parser.new(options)
       multilingual = parser.parse
       puts "multilngual: #{multilingual}" #multilngual: [#<struct Struct::Table name="Localizable", keys=["\"HELLO\""]>, #<struct Struct::Table name="Main", keys=["\"LIZARD\"", "\"DOOR\""]>]
