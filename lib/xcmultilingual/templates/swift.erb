@@ -1,5 +1,5 @@
 //
-//  <%= File.basename(@destination) %>
+//  <%= filename %>
 //  xcmultilingual
 //
 //  Created by xcmultilingual on <%= Time.now %>.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct Multilingual {
+public struct <%= name %> {
   <% @multilingual.each do |table| -%>
   public enum <%= table.name %>: String {
   <% table.keys.each do |key| -%>

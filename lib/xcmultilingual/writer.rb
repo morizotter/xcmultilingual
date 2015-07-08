@@ -2,9 +2,10 @@ require 'erb'
 
 module Xcmultilingual
   class Writer
-    def initialize(options, multilingual)
-      @verbose = options[:verbose]
-      @destination = options[:destination]
+    attr_accessor :name, :verbose
+
+    def initialize(destination, multilingual)
+      @destination = destination
       @multilingual = multilingual
     end
 
@@ -15,6 +16,9 @@ module Xcmultilingual
         puts "  There is no destination file."
         return
       end
+
+      filename = File.basename(@destination)
+      name = @name || "Multilingual"
 
       File.open("#{@destination}", "w") do |file|
         template_file = templates_file(default_templates_dir)
