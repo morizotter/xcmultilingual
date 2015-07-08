@@ -21,8 +21,9 @@ module Xcmultilingual
         body = ERB.new(File.open(template_file).read, nil, '-').result(binding)
         file.write(body)
       end
-
     end
+
+    private
 
     def default_templates_dir
       File.dirname(__FILE__) + '/templates'
