@@ -7,7 +7,7 @@ module Xcmultilingual
     end
 
     def parse
-      puts "+ LOADING LOCALIZABLE FILES" if @verbose
+      puts "+ START LOADING LOCALIZABLE FILES" if @verbose
 
       file_paths = {}
       Dir.glob("./**/*.lproj/*.strings") do |file_path|
@@ -32,6 +32,7 @@ module Xcmultilingual
 
         multilingual << Table.new(name, set.to_a)
       end
+      puts "+ END LOADING LOCALIZABLE FILES" if @verbose
       multilingual
     end
 

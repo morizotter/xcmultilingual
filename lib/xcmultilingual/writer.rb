@@ -9,7 +9,7 @@ module Xcmultilingual
     end
 
     def write
-      puts "+ UPDATING FILES" if @verbose
+      puts "+ START UPDATING FILES" if @verbose
 
       if !File.exist?("#{@destination}")
         puts "  There is no destination file."
@@ -20,6 +20,8 @@ module Xcmultilingual
         template_file = templates_file(default_templates_dir)
         body = ERB.new(File.open(template_file).read, nil, '-').result(binding)
         file.write(body)
+        puts "+ END UPDATING FILES\n\n" if @verbose
+        puts "#{body}"
       end
     end
 
