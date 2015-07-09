@@ -5,33 +5,34 @@ module Xcmultilingual
     attr_accessor :verbose
 
     def parse
-      puts "+ START LOADING LOCALIZABLE FILES" if @verbose
-
-      file_paths = {}
+      bundles = {}
       Dir.glob("./**/*.lproj/*.strings") do |file_path|
-        filename = File.basename(file_path)
-        puts "  LOAD: #{File.basename(File.dirname(file_path))}/#{File.basename(file_path)}" if @verbose
+        # bundle
+        match = file_path.match(/([^\/]*).bundle/)
+        bundle_name = match ? match[1] : nil
+        bundles[bundle_name] = {:file_path => file_path, :name => bundle_name, :tables => {}} unless bundles[bundle_name]
+        # file_pathをbundle_pathに修正する
+
+        # name
         name = File.basename(file_path, ".strings")
+        bundles[bundle_name][:tables][name] = Set.new  unless bundles[bundle_name][:tables].keys.include?(name)
 
-        file_paths["#{name}"] = [] unless file_paths["#{name}"]
-        file_paths["#{name}"] << file_path
-      end
-
-      multilingual = []
-      file_paths.each do |name, paths|
-        set = Set.new
-        paths.each do |path|
-          File.readlines(path, encoding: 'UTF-8').each do |line|
-            if key = find_key(line)
-              set << key
-            end
+        # keys
+        File.readlines(file_path, encoding: 'UTF-8').each do |line|
+          if key = find_key(line)
+            bundles[bundle_name][:tables][name] << key
           end
         end
-
-        multilingual << Table.new(name, set.to_a)
       end
-      puts "+ END LOADING LOCALIZABLE FILES" if @verbose
-      multilingual
+
+      return bundles.each do |k, v|
+        bundle = Bundle.new(v[:file_path], v[:name], [])
+        v[:tables].each do |o, p|
+          table = Table.new(o, p.to_a)
+          bundle.tables << table
+        end
+        puts bundle
+      end
     end
 
     private
