@@ -3,7 +3,7 @@ require 'set'
 module Xcmultilingual
   class Parser
     attr_accessor :verbose
-    
+
     def parse
       puts "+ START LOADING LOCALIZABLE FILES" if @verbose
 
