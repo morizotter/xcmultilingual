@@ -1,8 +1,9 @@
 module Xcmultilingual
-  Table = Struct.new("Table", :name, :keys) do
+  Bundle = Struct.new("Bundle", :path, :name, :tables) do
 
   end
-  Bundle = Struct.new("Bundle", :path, :name, :tables) do
+  
+  Table = Struct.new("Table", :name, :keys) do
 
   end
 end

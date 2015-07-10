@@ -30,14 +30,18 @@ module Xcmultilingual
         end
       end
 
-      return bundles.each do |k, v|
+      bundle_data = []
+      bundles.each do |k, v|
         bundle = Bundle.new(v[:file_path], v[:name], [])
         v[:tables].each do |o, p|
           table = Table.new(o, p.to_a)
           bundle.tables << table
         end
-        puts bundle
+        bundle_data << bundle
       end
+      puts "BUNDLE DATA"
+      puts "#{bundle_data[0]}"
+      bundle_data
     end
 
     private

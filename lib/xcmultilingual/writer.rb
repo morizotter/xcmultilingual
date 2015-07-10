@@ -4,9 +4,9 @@ module Xcmultilingual
   class Writer
     attr_accessor :name, :verbose
 
-    def initialize(destination, multilingual)
+    def initialize(destination, bundle_data)
       @destination = destination
-      @multilingual = multilingual
+      @bundle_data = bundle_data
       @filename = File.basename(@destination)
     end
 

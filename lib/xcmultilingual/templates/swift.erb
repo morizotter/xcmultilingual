@@ -9,16 +9,21 @@
 import Foundation
 
 public struct <%= @name %> {
-<% @multilingual.each do |table| -%>
-    public enum <%= table.name %>: String {
+<% @bundle_data.each do |bundle| -%>
+<% nsbundle = bundle.name ? "NSBundle(path: \"#{bundle.path}\")" : "NSBundle.mainBundle()!" -%>
+<% prefix = bundle.name.capitalize unless bundle.name.nil? %>
+
+<% bundle.tables.each do |table| -%>
+    public enum <%= prefix %><%= table.name %>: String {
 <% table.keys.each do |key| -%>
         case <%= key %> = "<%= key %>"
 <% end -%>
 
         public func string() -> String {
-            return NSLocalizedString(rawValue, tableName: "<%= table.name %>", bundle: NSBundle.mainBundle(), value: "\(rawValue)", comment: "")
+            return NSLocalizedString(rawValue, tableName: "<%= table.name %>", bundle: <%= nsbundle %>, value: "\(rawValue)", comment: "")
         }
     }
 
+<%- end -%>
 <%- end -%>
 }
