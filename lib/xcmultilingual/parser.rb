@@ -6,11 +6,16 @@ module Xcmultilingual
 
     def parse
       bundles = {}
-      Dir.glob("./**/*.lproj/*.strings") do |file_path|
+      Dir.glob("./**/*.lproj/**/*.strings") do |file_path|
         # bundle
-        match = file_path.match(/([^\/]*).bundle/)
-        bundle_name = match ? match[1] : nil
-        bundles[bundle_name] = {:file_path => file_path, :name => bundle_name, :tables => {}} unless bundles[bundle_name]
+        if match = file_path.match(/(?<dir>(?<name>[^\/]*).bundle)/)
+          bundle_name = match["name"]
+          bundle_path = file_path[0, match.end("dir")]
+        else
+          bundle_name = nil
+          bundle_path = nil
+        end
+        bundles[bundle_name] = {:file_path => bundle_path, :name => bundle_name, :tables => {}} unless bundles[bundle_name]
         # file_pathをbundle_pathに修正する
 
         # name
