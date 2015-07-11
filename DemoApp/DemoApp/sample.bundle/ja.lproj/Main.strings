@@ -1,0 +1,11 @@
+/*
+  Main.strings
+  multilingual-test
+
+  Created by MORITANAOKI on 2015/07/06.
+  Copyright (c) 2015年 MORITANAOKI. All rights reserved.
+*/
+
+"LIZARD" = "リザード";
+"DOOR" = "ドア";
+"YES" = "はい";
