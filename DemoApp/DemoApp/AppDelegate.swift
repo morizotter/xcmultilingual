@@ -13,7 +13,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         let samples = [
@@ -21,7 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             Sample(desc: "SAMPLE", result: Multilingual.SampleSample.SAMPLE.string())
         ]
         
-        samples.map { println($0.string()) }
+        let sampler = Sampler(samples: samples)
+        sampler.print()
+        sampler.printMacros()
         
         return true
     }

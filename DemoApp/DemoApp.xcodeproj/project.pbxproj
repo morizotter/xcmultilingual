@@ -17,7 +17,7 @@
 		905547B71B50D4BC003A766C /* Main.strings in Resources */ = {isa = PBXBuildFile; fileRef = 905547B41B50D4BC003A766C /* Main.strings */; };
 		905547BD1B50D4F1003A766C /* sample.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 905547BC1B50D4F1003A766C /* sample.bundle */; };
 		905547BF1B50D506003A766C /* Multilingual.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905547BE1B50D506003A766C /* Multilingual.swift */; };
-		905547C11B50E379003A766C /* Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905547C01B50E379003A766C /* Sample.swift */; };
+		905547C11B50E379003A766C /* Sampler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905547C01B50E379003A766C /* Sampler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,7 +49,7 @@
 		905547BB1B50D4D8003A766C /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		905547BC1B50D4F1003A766C /* sample.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = sample.bundle; sourceTree = "<group>"; };
 		905547BE1B50D506003A766C /* Multilingual.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Multilingual.swift; sourceTree = "<group>"; };
-		905547C01B50E379003A766C /* Sample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sample.swift; sourceTree = "<group>"; };
+		905547C01B50E379003A766C /* Sampler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sampler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +91,7 @@
 		905547741B50D3BD003A766C /* DemoApp */ = {
 			isa = PBXGroup;
 			children = (
-				905547C01B50E379003A766C /* Sample.swift */,
+				905547C01B50E379003A766C /* Sampler.swift */,
 				905547BE1B50D506003A766C /* Multilingual.swift */,
 				905547BC1B50D4F1003A766C /* sample.bundle */,
 				905547771B50D3BD003A766C /* AppDelegate.swift */,
@@ -141,6 +141,7 @@
 				9055476E1B50D3BD003A766C /* Sources */,
 				9055476F1B50D3BD003A766C /* Frameworks */,
 				905547701B50D3BD003A766C /* Resources */,
+				905547C21B50EA2E003A766C /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -230,13 +231,29 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		905547C21B50EA2E003A766C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "env > env.txt";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9055476E1B50D3BD003A766C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				9055477A1B50D3BD003A766C /* ViewController.swift in Sources */,
-				905547C11B50E379003A766C /* Sample.swift in Sources */,
+				905547C11B50E379003A766C /* Sampler.swift in Sources */,
 				905547BF1B50D506003A766C /* Multilingual.swift in Sources */,
 				905547781B50D3BD003A766C /* AppDelegate.swift in Sources */,
 			);

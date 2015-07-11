@@ -4,6 +4,10 @@ module Xcmultilingual
   class Parser
     attr_accessor :verbose
 
+    def initialize(destination)
+      @destination = destination
+    end
+
     def parse
       bundles = {}
       puts "+ START PARSING" if @verbose
