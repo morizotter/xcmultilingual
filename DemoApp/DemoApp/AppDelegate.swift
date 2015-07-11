@@ -15,36 +15,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        NSBundle(path: "")
-        println(Multilingual.Localizable.HELLO.string())
-        Multilingual.Localizable.HELLO.string()
         
-        let yes = Multilingual.SampleMain.YES.string()
-        println("yes: \(yes)")
+        let samples = [
+            Sample(desc: "MAIN", result: Multilingual.Localizable.HELLO.string()),
+            Sample(desc: "SAMPLE", result: Multilingual.SampleSample.SAMPLE.string())
+        ]
         
-        let all = NSBundle.allBundles()
-        for b in all {
-            b.load()
-            println("b: \(b)")
-            NSTimer.scheduledTimerWithTimeInterval(3.0, target: self, selector: "bundle:", userInfo: b, repeats: true)
-        }
-        
-        let bundle = NSBundle(path: "/Users/moritanaoki/repositories/bitbucket/xcmultilingual/tmp/multilingual-test/multilingual-test/sample.bundle")
-        bundle?.load()
-        println("bundle: \(bundle)")
-        NSTimer.scheduledTimerWithTimeInterval(3.0, target: self, selector: "bundle:", userInfo: bundle!, repeats: true)
-        
-        let bundleString = NSLocalizedString("Door", tableName: "Main", bundle: bundle!, value: "", comment: "")
-        println("bundle string: \(bundleString)")
+        samples.map { println($0.string()) }
         
         return true
-    }
-    
-    func bundle(timer: NSTimer) {
-        let bundle = timer.userInfo as! NSBundle
-        println("bundle: \(bundle)")
-        let bundleString = NSLocalizedString("LIZARD", tableName: "Main", bundle: bundle, value: "", comment: "")
-        println("bundle string: \(bundleString)")
     }
 
     func applicationWillResignActive(application: UIApplication) {

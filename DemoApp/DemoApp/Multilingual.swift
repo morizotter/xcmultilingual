@@ -2,7 +2,7 @@
 //  Multilingual.swift
 //  xcmultilingual
 //
-//  Created by xcmultilingual on 2015-07-11 13:55:55 +0900.
+//  Created by xcmultilingual on 2015-07-11 14:27:11 +0900.
 //
 //
 
@@ -13,7 +13,7 @@ public struct Multilingual {
         case HELLO = "HELLO"
 
         public func string() -> String {
-            return NSLocalizedString(rawValue, tableName: "Localizable", bundle: NSBundle.mainBundle()!, value: "\(rawValue)", comment: "")
+            return NSLocalizedString(rawValue, tableName: "Localizable", bundle: NSBundle.mainBundle(), value: "\(rawValue)", comment: "")
         }
     }
 
@@ -22,25 +22,15 @@ public struct Multilingual {
         case DOOR = "DOOR"
 
         public func string() -> String {
-            return NSLocalizedString(rawValue, tableName: "Main", bundle: NSBundle.mainBundle()!, value: "\(rawValue)", comment: "")
+            return NSLocalizedString(rawValue, tableName: "Main", bundle: NSBundle.mainBundle(), value: "\(rawValue)", comment: "")
         }
     }
 
-    public enum SampleLocalizable: String {
-        case HELLO = "HELLO"
+    public enum SampleSample: String {
+        case SAMPLE = "SAMPLE"
 
         public func string() -> String {
-            return NSLocalizedString(rawValue, tableName: "Localizable", bundle: NSBundle(path: "./DemoApp/sample.bundle"), value: "\(rawValue)", comment: "")
-        }
-    }
-
-    public enum SampleMain: String {
-        case LIZARD = "LIZARD"
-        case DOOR = "DOOR"
-        case YES = "YES"
-
-        public func string() -> String {
-            return NSLocalizedString(rawValue, tableName: "Main", bundle: NSBundle(path: "./DemoApp/sample.bundle"), value: "\(rawValue)", comment: "")
+            return NSLocalizedString(rawValue, tableName: "Sample", bundle: NSBundle(path: "/Users/moritanaoki/repositories/bitbucket/xcmultilingual/DemoApp/DemoApp/sample.bundle")!, value: "\(rawValue)", comment: "")
         }
     }
 

@@ -8,6 +8,7 @@ module Xcmultilingual
       bundles = {}
       puts "+ START PARSING" if @verbose
       Dir.glob("./**/*.lproj/**/*.strings") do |file_path|
+        file_path = File.expand_path(file_path)
         # bundle
         if match = file_path.match(/(?<dir>(?<name>[^\/]*).bundle)/)
           bundle_name = match["name"]

@@ -24,7 +24,7 @@ module Xcmultilingual
         body = ERB.new(File.open(template_file).read, nil, '-').result(binding)
         file.write(body)
         puts "+ END UPDATING FILES\n\n" if @verbose
-        puts "#{body}" if @verbose
+        # puts "  #{body}" if @verbose
       end
     end
 
