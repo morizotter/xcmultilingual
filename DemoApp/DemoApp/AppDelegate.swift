@@ -21,8 +21,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ]
         
         let sampler = Sampler(samples: samples)
-        sampler.printMacros()   
+        sampler.printMacros()
         sampler.print()
+        
+        Multilingual.Main.LIZARD.string()
         
         return true
     }

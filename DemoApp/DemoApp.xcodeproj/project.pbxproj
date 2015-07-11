@@ -91,9 +91,9 @@
 		905547741B50D3BD003A766C /* DemoApp */ = {
 			isa = PBXGroup;
 			children = (
+				905547BC1B50D4F1003A766C /* sample.bundle */,
 				905547C01B50E379003A766C /* Sampler.swift */,
 				905547BE1B50D506003A766C /* Multilingual.swift */,
-				905547BC1B50D4F1003A766C /* sample.bundle */,
 				905547771B50D3BD003A766C /* AppDelegate.swift */,
 				905547791B50D3BD003A766C /* ViewController.swift */,
 				9055477B1B50D3BD003A766C /* Main.storyboard */,
