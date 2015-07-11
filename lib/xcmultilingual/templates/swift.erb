@@ -10,7 +10,7 @@ import Foundation
 
 public struct <%= @name %> {
 <% @bundle_data.each do |bundle| -%>
-<% nsbundle = bundle.name ? "NSBundle(path: \"#{bundle.path}\")" : "NSBundle.mainBundle()!" -%>
+<% nsbundle = bundle.name ? "NSBundle(path: \"#{bundle.path}\")!" : "NSBundle.mainBundle()" -%>
 <% prefix = bundle.name.capitalize unless bundle.name.nil? -%>
 <% bundle.tables.each do |table| -%>
     public enum <%= prefix %><%= table.name %>: String {
