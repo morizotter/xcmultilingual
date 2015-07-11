@@ -2,7 +2,7 @@
 //  Multilingual.swift
 //  xcmultilingual
 //
-//  Created by xcmultilingual on 2015-07-11 17:18:04 +0900.
+//  Created by xcmultilingual on 2015-07-11 17:22:09 +0900.
 //
 //
 
@@ -36,9 +36,9 @@ struct Multilingual {
 
 
     private static func bundle(path: String, removeLast count: Int) -> NSBundle {
-      var components = (__FILE__ as String).pathComponents
-      for i in 0...count { let n = components.removeLast() }
-      let result = join("/", components)
-      return NSBundle.mainBundle()
+        var components = (__FILE__ as String).pathComponents
+        for i in 0...count { let n = components.removeLast() }
+        let bundlePath = join("/", components) + path
+        return NSBundle(path: bundlePath) ?? NSBundle.mainBundle()
     }
 }
