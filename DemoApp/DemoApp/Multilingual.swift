@@ -2,7 +2,7 @@
 //  Multilingual.swift
 //  xcmultilingual
 //
-//  Created by xcmultilingual on 2015-07-11 17:22:09 +0900.
+//  Created by xcmultilingual on 2015-07-11 17:28:30 +0900.
 //
 //
 
@@ -30,14 +30,14 @@ struct Multilingual {
         case SAMPLE = "SAMPLE"
 
         func string() -> String {
-            return NSLocalizedString(rawValue, tableName: "Sample", bundle: Multilingual.bundle("./sample.bundle", removeLast: 1), value: "\(rawValue)", comment: "")
+            return NSLocalizedString(rawValue, tableName: "Sample", bundle: Multilingual.bundle("/sample.bundle", removeLast: 1), value: "\(rawValue)", comment: "")
         }
     }
 
 
     private static func bundle(path: String, removeLast count: Int) -> NSBundle {
         var components = (__FILE__ as String).pathComponents
-        for i in 0...count { let n = components.removeLast() }
+        for i in 0..<count { let n = components.removeLast() }
         let bundlePath = join("/", components) + path
         return NSBundle(path: bundlePath) ?? NSBundle.mainBundle()
     }

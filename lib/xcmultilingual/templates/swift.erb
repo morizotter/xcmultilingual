@@ -28,7 +28,7 @@ struct <%= @name %> {
 
     private static func bundle(path: String, removeLast count: Int) -> NSBundle {
         var components = (__FILE__ as String).pathComponents
-        for i in 0...count { let n = components.removeLast() }
+        for i in 0..<%= "<" %>count { let n = components.removeLast() }
         let bundlePath = join("/", components) + path
         return NSBundle(path: bundlePath) ?? NSBundle.mainBundle()
     }

@@ -82,12 +82,7 @@ module Xcmultilingual
       puts "EXTRAS SRC: #{src_extras}"
       puts "EXTRAS DEST: #{dest_extras}"
 
-      prefix = ""
-      src_extras.size.times do |idx|
-        prefix += "./"
-      end
-
-      prefix + src_extras.join("/")
+      "/" + src_extras.join("/")
     end
 
     def find_key(line)

@@ -31,11 +31,7 @@ struct Sampler {
     }
 
     func printMacros() {
-        println("FILE: \(__FILE__)")
-        var components = (__FILE__ as String).pathComponents
-        println(components.removeLast())
-        let file: String = join("/", components)
-        println("FILE NO LAST: \(file)")
+        println("FILE NO LAST: \(__FILE__)")
         println("LINE: \(__LINE__)")
     }
 }

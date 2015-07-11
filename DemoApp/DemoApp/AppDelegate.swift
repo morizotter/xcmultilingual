@@ -23,7 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let sampler = Sampler(samples: samples)
         sampler.printMacros()   
         sampler.print()
-        sampler.bundlePath(removeLast: 4)
         
         return true
     }
