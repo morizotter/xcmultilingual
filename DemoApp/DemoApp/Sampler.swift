@@ -25,13 +25,17 @@ struct Sampler {
     init(samples: [Sample]) {
         self.samples = samples
     }
-    
+
     func print() {
         samples.map { println($0.string()) }
     }
-    
+
     func printMacros() {
         println("FILE: \(__FILE__)")
+        var components = (__FILE__ as String).pathComponents
+        println(components.removeLast())
+        let file: String = join("/", components)
+        println("FILE NO LAST: \(file)")
         println("LINE: \(__LINE__)")
     }
 }

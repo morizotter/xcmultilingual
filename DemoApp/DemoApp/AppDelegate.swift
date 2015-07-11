@@ -21,8 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ]
         
         let sampler = Sampler(samples: samples)
+        sampler.printMacros()   
         sampler.print()
-        sampler.printMacros()
+        sampler.bundlePath(removeLast: 4)
         
         return true
     }
