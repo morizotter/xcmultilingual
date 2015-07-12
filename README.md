@@ -150,9 +150,9 @@ If you want to use `LOC` for top level struct name. `xcmultilingual update ./Dem
 
 ## Swift functions
 
-`Multilingual` is swift struct. Localization files tables are represented as enum in this struct.
+`Multilingual` is swift struct. Localization tables are represented as enum in this struct.
 
-Each struct has `Table name` and `string()` instance function and `keys()` and `localizations()` static functions.
+Each enum has `Table name` and `string()` instance function and `keys()` and `localizations()` static functions.
 
 Example:
 
