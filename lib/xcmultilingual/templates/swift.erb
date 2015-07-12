@@ -10,7 +10,7 @@ import Foundation
 
 struct <%= @name %> {
 <% @bundle_data.each do |bundle| -%>
-<% nsbundle = bundle.name ? "Multilingual.bundle(\"#{bundle.path}\", removeLast: 1)" : "NSBundle.mainBundle()" -%>
+<% nsbundle = bundle.name ? "Multilingual.bundle(\"#{bundle.path}\")" : "NSBundle.mainBundle()" -%>
 <% prefix = bundle.name.capitalize unless bundle.name.nil? -%>
 <% bundle.tables.each do |table| -%>
     enum <%= prefix %><%= table.name %>: String {
@@ -26,10 +26,10 @@ struct <%= @name %> {
 <%- end # table -%>
 <%- end # bundle -%>
 
-    private static func bundle(path: String, removeLast count: Int) -> NSBundle {
+    private static func bundle(relativePath: String) -> NSBundle {
         var components = (__FILE__ as String).pathComponents
-        for i in 0..<%= "<" %>count { let n = components.removeLast() }
-        let bundlePath = join("/", components) + path
+        components.removeLast()
+        let bundlePath = join("/", components) + "/" + relativePath
         return NSBundle(path: bundlePath) ?? NSBundle.mainBundle()
     }
 }

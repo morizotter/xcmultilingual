@@ -2,7 +2,7 @@
 //  Multilingual.swift
 //  xcmultilingual
 //
-//  Created by xcmultilingual on 2015-07-11 17:45:49 +0900.
+//  Created by xcmultilingual on 2015-07-12 14:33:27 +0900.
 //
 //
 
@@ -26,19 +26,27 @@ struct Multilingual {
         }
     }
 
+    enum Sample2Sample: String {
+        case SAMPLE = "SAMPLE"
+
+        func string() -> String {
+            return NSLocalizedString(rawValue, tableName: "Sample", bundle: Multilingual.bundle("Loalizations/sample2.bundle"), value: "\(rawValue)", comment: "")
+        }
+    }
+
     enum SampleSample: String {
         case SAMPLE = "SAMPLE"
 
         func string() -> String {
-            return NSLocalizedString(rawValue, tableName: "Sample", bundle: Multilingual.bundle("/sample.bundle", removeLast: 1), value: "\(rawValue)", comment: "")
+            return NSLocalizedString(rawValue, tableName: "Sample", bundle: Multilingual.bundle("sample.bundle"), value: "\(rawValue)", comment: "")
         }
     }
 
 
-    private static func bundle(path: String, removeLast count: Int) -> NSBundle {
+    private static func bundle(relativePath: String) -> NSBundle {
         var components = (__FILE__ as String).pathComponents
-        for i in 0..<count { let n = components.removeLast() }
-        let bundlePath = join("/", components) + path
+        components.removeLast()
+        let bundlePath = join("/", components) + "/" + relativePath
         return NSBundle(path: bundlePath) ?? NSBundle.mainBundle()
     }
 }

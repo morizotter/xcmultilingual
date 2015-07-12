@@ -31,7 +31,7 @@ struct Sampler {
     }
 
     func printMacros() {
-        println("FILE NO LAST: \(__FILE__)")
+        println("FILE: \(__FILE__)")
         println("LINE: \(__LINE__)")
     }
 }

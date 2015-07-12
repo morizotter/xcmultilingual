@@ -16,8 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         let samples = [
-            Sample(desc: "MAIN", result: Multilingual.Localizable.HELLO.string()),
-            Sample(desc: "SAMPLE", result: Multilingual.SampleSample.SAMPLE.string())
+            Sample(desc: "Main: regular", result: Multilingual.Localizable.HELLO.string()),
+            Sample(desc: "Sample: bundle at same directory", result: Multilingual.SampleSample.SAMPLE.string()),
+            Sample(desc: "Sample2: bundle at deep directory", result: Multilingual.Sample2Sample.SAMPLE.string())
         ]
         
         let sampler = Sampler(samples: samples)
