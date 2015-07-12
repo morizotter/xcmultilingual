@@ -2,6 +2,8 @@
 
 Command line tool for Swift localizations: It parses localization files in the project and output swift file including functions with pretty complementations!
 
+RubyGems: [xcmultilingual | RubyGems.org | your community gem host](https://rubygems.org/gems/xcmultilingual)
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -28,7 +30,7 @@ This is command line tool distributed with [RubyGems.org](https://rubygems.org/)
 
 Named as `Multilingual.swift` in this example. **xcmultilingual** parses same and lower directries' .bundle and .lproj.
 
-```
+```bash
 .
 ├── DemoApp
 │   ├── AppDelegate.swift
@@ -41,7 +43,7 @@ Named as `Multilingual.swift` in this example. **xcmultilingual** parses same an
 
 ### 3. Execute update command with destination file path
 
-```
+```bash
 $ xcmultingual update ./DemoApp/Multilingual.swift
 ```
 
@@ -49,7 +51,7 @@ And then convenient functions will be generated in destination swift file.
 
 Example:
 
-```
+```swift
 import Foundation
 
 struct Multilingual {
@@ -105,14 +107,14 @@ And now, you can access your localization string with pretty good complementatio
 
 For example, when write: Multilingual, complementations are below:
 
-```
+```swift
 Multilingual.Localizable
 Multilingual.Animal
 ```
 
 And then, select `Multilingual.Animan`, complementations are blow:
 
-```
+```swift
 Multilingual.Animal.CAT
 Multilingual.Animal.DOG
 Multilingual.Animal.BEAR
@@ -123,7 +125,7 @@ Awesome!
 
 And print localized string is:
 
-```
+```swift
 Multilingual.Animal.DOG.string()
 ```
 
@@ -151,13 +153,13 @@ Example:
 
 When you want to use Animal table's DOG key localization.
 
-```
+```swift
 Multilingual.Animal.DOG.string() // Dog
 ```
 
 When you want to show every localizations in test.
 
-```
+```swift
 Multilingual.Animal.localizations() // ["Cat", "Dog", "Bear", "Dear"]
 ```
 
