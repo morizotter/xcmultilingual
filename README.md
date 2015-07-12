@@ -152,13 +152,13 @@ Example:
 When you want to use Animal table's DOG key localization.
 
 ```
-Multilingual.Animal.DOG.string()
+Multilingual.Animal.DOG.string() // Dog
 ```
 
 When you want to show every localizations in test.
 
 ```
-Multilingual.Animal.localizations()
+Multilingual.Animal.localizations() // ["Cat", "Dog", "Bear", "Dear"]
 ```
 
 ## Contributing
