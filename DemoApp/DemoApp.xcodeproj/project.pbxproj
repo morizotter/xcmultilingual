@@ -315,7 +315,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "env > env.txt";
+			shellScript = "";
 		};
 		B5AF23A33F317ABA8BED30B5 /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
