@@ -17,17 +17,16 @@ module Xcmultilingual
         # bundle
         if match = file_path.match(/(?<dir>(?<name>[^\/]*).bundle)/)
           bundle_name = match["name"]
-          bundle_path = file_path[0, match.end("dir")]
+          relative_path = file_path[0, match.end("dir")]
 
           destination_path = File.expand_path(@destination)
-          bundle_path = create_relative_path(destination_path, bundle_path)
+          relative_path = create_relative_path(destination_path, relative_path)
         else
           bundle_name = nil
-          bundle_path = nil
+          relative_path = nil
         end
 
-        bundles[bundle_name] = {:file_path => bundle_path, :name => bundle_name, :tables => {}} unless bundles[bundle_name]
-        # file_pathをbundle_pathに修正する
+        bundles[bundle_name] = {:relative_path => relative_path, :name => bundle_name, :tables => {}} unless bundles[bundle_name]
 
         # name
         name = File.basename(file_path, ".strings")
@@ -43,7 +42,7 @@ module Xcmultilingual
 
       bundle_data = []
       bundles.each do |k, v|
-        bundle = Bundle.new(v[:file_path], v[:name], [])
+        bundle = Bundle.new(v[:relative_path], v[:name], [])
         v[:tables].each do |o, p|
           table = Table.new(o, p.to_a)
           bundle.tables << table
