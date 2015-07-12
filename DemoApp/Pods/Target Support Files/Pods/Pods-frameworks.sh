@@ -48,8 +48,8 @@ code_sign() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework 'TUSafariActivity.framework'
+  install_framework 'SwiftyDrop.framework'
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework 'TUSafariActivity.framework'
+  install_framework 'SwiftyDrop.framework'
 fi

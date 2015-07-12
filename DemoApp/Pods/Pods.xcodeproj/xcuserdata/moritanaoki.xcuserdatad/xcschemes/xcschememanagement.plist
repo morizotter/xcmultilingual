@@ -4,12 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Pods-TUSafariActivity-TUSafariActivity.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-TUSafariActivity.xcscheme</key>
+		<key>Pods-SwiftyDrop.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -22,17 +17,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>602AE669B9740755B56DA085</key>
+		<key>28CB956B65F43EF70FE8002C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6A87FE71AC51C72914B98F02</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FCB8371192037A4D1A7E90C2</key>
+		<key>87A4894B4CD120B82F077320</key>
 		<dict>
 			<key>primary</key>
 			<true/>

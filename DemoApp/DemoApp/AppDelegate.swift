@@ -14,19 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        
-        let samples = [
-            Sample(desc: "Localizable:  ", result: Multilingual.Localizable.HELLO.string()),
-            Sample(desc: "Main:         ", result: Multilingual.Animal.DOG.string()),
-            Sample(desc: "Sample:       ", result: Multilingual.SampleSample.SAMPLE.string()),
-            Sample(desc: "Sample2:      ", result: Multilingual.Sample2Sample.SAMPLE.string())
-        ]
-        
-        println("Animals: \(Multilingual.Animal.localizations())")
-        
-        let sampler = Sampler(samples: samples)
-        sampler.print()
-        
+                
         return true
     }
 

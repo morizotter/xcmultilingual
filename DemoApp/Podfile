@@ -1,2 +1,2 @@
 use_frameworks!
-pod 'TUSafariActivity'
+pod 'SwiftyDrop'
