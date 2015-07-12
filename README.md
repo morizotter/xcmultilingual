@@ -42,7 +42,7 @@ Name `Multilingual.swift` in this example. **xcmultilingual** parses same and lo
 ### 3. Execute update command with destination file path
 
 ```
-$ xcmultingual update -d ./DemoApp/Multilingual.swift
+$ xcmultingual update ./DemoApp/Multilingual.swift
 ```
 
 And then convenience functions will be generated in destination swift file.
@@ -129,12 +129,12 @@ Multilingual.Animal.DOG.string()
 
 Easy!
 
-## Command optoins
+## Commands
 
-**update:** Update swift file.
+**update:** Update swift file. DESTINATION is required.
 
 options:
-- `-destination` or `-d`: Generating target file.
+- `-name` or `-n`: Change Localization struct name. Default is Multilingual.
 - `--verbose`: Output execution logs
 - `--help` or `-h`: Show commands
 
