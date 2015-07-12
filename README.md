@@ -26,7 +26,7 @@ This is command line tool distributed with [RubyGems.org](https://rubygems.org/)
 
 ### 2. Create empty swift file in top level of project tree.
 
-Name `Multilingual.swift` in this example. **xcmultilingual** parses same and lower directries' .bundle and .lproj.
+Named as `Multilingual.swift` in this example. **xcmultilingual** parses same and lower directries' .bundle and .lproj.
 
 ```
 .
