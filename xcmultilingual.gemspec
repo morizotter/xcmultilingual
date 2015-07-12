@@ -9,9 +9,9 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Naoki Morita"]
   spec.email         = ["namorit@gmail.com"]
 
-  spec.summary       = %q{Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{Write a longer description or delete this line.}
-  # spec.homepage      = "Put your gem's website or public repo URL here."
+  spec.summary       = "Command line tool for Swift localizations: It parses localization files in project and output swift file including functions with pretty complementations"
+  spec.description   = "Command line tool for Swift localizations: It parses localization files in the project and output swift file including functions with pretty complementations!"
+  spec.homepage      = "https://github.com/morizotter/xcmultilingual"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
