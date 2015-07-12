@@ -26,7 +26,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         println("All Frameworks: \(NSBundle.allFrameworks())")
         
         let sampler = Sampler(samples: samples)
-        sampler.printMacros()
         sampler.print()
         
         return true
