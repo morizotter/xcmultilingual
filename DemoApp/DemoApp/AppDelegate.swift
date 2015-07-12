@@ -25,8 +25,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         println("All Bundles: \(NSBundle.allBundles())")
         println("All Frameworks: \(NSBundle.allFrameworks())")
         
-        println(Multilingual.TUSafariActivity.Open_in_Safari.string())
-        
         let sampler = Sampler(samples: samples)
         sampler.printMacros()
         sampler.print()

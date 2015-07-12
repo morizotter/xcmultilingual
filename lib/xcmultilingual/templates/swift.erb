@@ -21,6 +21,10 @@ struct <%= @name %> {
         func string() -> String {
             return NSLocalizedString(rawValue, tableName: "<%= table.name %>", bundle: <%= nsbundle %>, value: "\(rawValue)", comment: "")
         }
+
+        func keys() -> [String] {
+            return ["<%= table.keys.join("\", \"") -%>"]
+        }
     }
 
 <%- end # table -%>
