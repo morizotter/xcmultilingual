@@ -36,8 +36,10 @@ module Xcmultilingual
 
         # keys
         File.readlines(file_path, encoding: 'UTF-8').each do |line|
-          if key = find_key(line)
+          safe_line = line.scrub('?')
+          if key = find_key(safe_line)
             bundles[bundle_name][:tables][name] << key
+            puts "  PARSE: #{File.basename(file_path)} > #{line}" if @verbose
           end
         end
       end
@@ -49,6 +51,8 @@ module Xcmultilingual
           table = Table.new(o, p.to_a)
           bundle.tables << table
         end
+
+        puts "" if @verbose
         puts "#{bundle.description}" if @verbose
         bundle_data << bundle
       end

@@ -2,7 +2,7 @@
 //  Multilingual.swift
 //  xcmultilingual
 //
-//  Created by xcmultilingual on 2015-07-12 15:29:25 +0900.
+//  Created by xcmultilingual on 2015-07-12 15:59:15 +0900.
 //
 //
 
@@ -27,6 +27,14 @@ struct Multilingual {
 
         func string() -> String {
             return NSLocalizedString(rawValue, tableName: "Localizable", bundle: NSBundle.mainBundle(), value: "\(rawValue)", comment: "")
+        }
+    }
+
+    enum TUSafariActivity: String {
+        case Open in Safari = "Open in Safari"
+
+        func string() -> String {
+            return NSLocalizedString(rawValue, tableName: "TUSafariActivity", bundle: NSBundle.mainBundle(), value: "\(rawValue)", comment: "")
         }
     }
 
