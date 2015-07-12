@@ -12,8 +12,13 @@ module Xcmultilingual
       puts "+ START PARSING" if @verbose
       puts "" if @verbose
 
+      destination_path = File.expand_path(@destination)
+      puts destination_path
+      destination_dir = File.dirname(destination_path)
+      puts destination_dir
+
       bundles = {}
-      Dir.glob("./**/*.lproj/**/*.strings") do |file_path|
+      Dir.glob("#{destination_dir}/**/*.lproj/**/*.strings") do |file_path|
         file_path = File.expand_path(file_path)
 
         # bundle
@@ -21,7 +26,6 @@ module Xcmultilingual
           bundle_name = match["name"]
           relative_path = file_path[0, match.end("dir")]
 
-          destination_path = File.expand_path(@destination)
           relative_path = create_relative_path(destination_path, relative_path)
         else
           bundle_name = nil
