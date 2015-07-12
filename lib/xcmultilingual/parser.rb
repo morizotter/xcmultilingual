@@ -3,38 +3,88 @@ require 'set'
 module Xcmultilingual
   class Parser
     attr_accessor :verbose
-    
+
+    def initialize(destination)
+      @destination = destination
+    end
+
     def parse
-      puts "+ START LOADING LOCALIZABLE FILES" if @verbose
+      puts "+ START PARSING" if @verbose
+      puts "" if @verbose
 
-      file_paths = {}
-      Dir.glob("./**/*.lproj/*.strings") do |file_path|
-        filename = File.basename(file_path)
-        puts "  LOAD: #{File.basename(File.dirname(file_path))}/#{File.basename(file_path)}" if @verbose
-        name = File.basename(file_path, ".strings")
+      bundles = {}
+      Dir.glob("./**/*.lproj/**/*.strings") do |file_path|
+        file_path = File.expand_path(file_path)
 
-        file_paths["#{name}"] = [] unless file_paths["#{name}"]
-        file_paths["#{name}"] << file_path
-      end
+        # bundle
+        if match = file_path.match(/(?<dir>(?<name>[^\/]*).bundle)/)
+          bundle_name = match["name"]
+          relative_path = file_path[0, match.end("dir")]
 
-      multilingual = []
-      file_paths.each do |name, paths|
-        set = Set.new
-        paths.each do |path|
-          File.readlines(path, encoding: 'UTF-8').each do |line|
-            if key = find_key(line)
-              set << key
-            end
-          end
+          destination_path = File.expand_path(@destination)
+          relative_path = create_relative_path(destination_path, relative_path)
+        else
+          bundle_name = nil
+          relative_path = nil
         end
 
-        multilingual << Table.new(name, set.to_a)
+        bundles[bundle_name] = {:relative_path => relative_path, :name => bundle_name, :tables => {}} unless bundles[bundle_name]
+
+        # name
+        name = File.basename(file_path, ".strings")
+        bundles[bundle_name][:tables][name] = Set.new  unless bundles[bundle_name][:tables].keys.include?(name)
+
+        # keys
+        File.readlines(file_path, encoding: 'UTF-8').each do |line|
+          if key = find_key(line)
+            bundles[bundle_name][:tables][name] << key
+          end
+        end
       end
-      puts "+ END LOADING LOCALIZABLE FILES" if @verbose
-      multilingual
+
+      bundle_data = []
+      bundles.each do |k, v|
+        bundle = Bundle.new(v[:relative_path], v[:name], [])
+        v[:tables].each do |o, p|
+          table = Table.new(o, p.to_a)
+          bundle.tables << table
+        end
+        puts "#{bundle.description}" if @verbose
+        bundle_data << bundle
+      end
+
+      puts "" if @verbose
+      puts "+ PARSE SUCCEEDED" if @verbose
+      puts "" if @verbose
+
+      bundle_data
     end
 
     private
+
+    def create_relative_path(dest_path, src_path)
+      dest_split = dest_path.split("/")
+      src_split = src_path.split("/")
+
+      src_extras = []
+      src_split.each_with_index do |val, idx|
+        next if val == dest_split[idx]
+        src_extras << val
+      end
+
+      dest_extras = []
+      dest_split.each_with_index do |val, idx|
+        next if val == src_split[idx]
+        dest_extras << val
+      end
+
+      prefix = ""
+      (dest_extras.size - 1).times do |idx|
+        prefix += "../"
+      end
+
+      prefix + src_extras.join("/")
+    end
 
     def find_key(line)
       if match = line.match(/^\"(.*)\"\s*=\s*\"(.*)\"\;$/)

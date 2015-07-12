@@ -8,17 +8,21 @@ module Xcmultilingual
 
     desc "update", "update xcmultilingual swift file"
     option :destination, :aliases => "-d", :required => true
-    option :source, :aliases => "-s"
     option :name, :aliases => "-n"
     def update
-      parser = Parser.new()
+      parser = Parser.new(options[:destination])
       parser.verbose = options[:verbose] || false
-      multilingual = parser.parse
+      bundle_data = parser.parse
 
-      writer = Writer.new(options[:destination], multilingual)
+      writer = Writer.new(options[:destination], bundle_data)
       writer.name = options[:name] || "Multilingual"
       writer.verbose = options[:verbose] || false
       writer.write
+
+      puts "+ DONE" if options[:verbose]
+      puts "" if options[:verbose]
+      puts "  See #{options[:destination]}" if options[:verbose]
+      puts "" if options[:verbose]
     end
   end
 end

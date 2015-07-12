@@ -4,18 +4,18 @@ module Xcmultilingual
   class Writer
     attr_accessor :name, :verbose
 
-    def initialize(destination, multilingual)
+    def initialize(destination, bundle_data)
       @destination = destination
-      @multilingual = multilingual
+      @bundle_data = bundle_data
       @filename = File.basename(@destination)
     end
 
     def write
-      puts "+ START UPDATING FILES" if @verbose
+      puts "+ START UPDATING\n\n" if @verbose
 
       if !File.exist?("#{@destination}")
         puts "  There is no destination file." if @verbose
-        puts "+ END UPDATING" if @verbose
+        puts "\n+ FAILED UPDATING\n" if @verbose
         return
       end
 
@@ -23,9 +23,8 @@ module Xcmultilingual
         template_file = templates_file(default_templates_dir)
         body = ERB.new(File.open(template_file).read, nil, '-').result(binding)
         file.write(body)
-        puts "+ END UPDATING FILES\n\n" if @verbose
-        puts "#{body}" if @verbose
       end
+      puts "+ END UPDATING\n\n" if @verbose
     end
 
     private
