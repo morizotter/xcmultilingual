@@ -7,8 +7,8 @@ module Xcmultilingual
     class_option :verbose, :type => :boolean
 
     desc "update DESTINATION", "update xcmultilingual swift file"
-    # option :destination, :aliases => "-d", :required => true, :desc => "generating file destination"
     option :name, :aliases => "-n", :default => "Multilingual", :desc => "Localization struct name"
+    option :template_path, :aliases => "-t", :desc => "User generated template file path"
     def update(destination)
       parser = Parser.new(destination)
       parser.verbose = options[:verbose] || false
@@ -16,6 +16,7 @@ module Xcmultilingual
 
       writer = Writer.new(destination, bundle_data)
       writer.name = options[:name]
+      writer.template_path = options[:template_path] if options[:template_path]
       writer.verbose = options[:verbose] || false
       writer.write
 

@@ -1,0 +1,44 @@
+//
+//  <%= @filename %>
+//  xcmultilingual - Custom
+//
+//  Created by xcmultilingual.
+//
+//
+
+import Foundation
+
+struct <%= @name %> {
+<% @bundle_data.each do |bundle| -%>
+<% nsbundle = bundle.name ? "Multilingual.bundle(\"#{bundle.relative_path}\")" : "NSBundle.mainBundle()" -%>
+<% bundle_name = bundle.name.nil? ? "" : bundle.name.capitalize -%>
+<% bundle.tables.each do |table| -%>
+<% class_name = bundle_name + table.name -%>
+    enum <%= class_name %>: String {
+<% table.keys.each do |key| -%>
+        case <%= key %> = "<%= key %>"
+<% end # keys -%>
+
+        func string() -> String {
+            return NSLocalizedString(rawValue, tableName: "<%= table.name %>", bundle: <%= nsbundle %>, value: "\(rawValue)", comment: "")
+        }
+
+        static func keys() -> [String] {
+            return ["<%= table.keys.join("\", \"") %>"]
+        }
+
+        static func localizations() -> [String] {
+            return <%= class_name %>.keys().map { <%= class_name %>(rawValue: $0)!.string() }
+        }
+    }
+
+<%- end # table -%>
+<%- end # bundle -%>
+
+    private static func bundle(relativePath: String) -> NSBundle {
+        var components = (__FILE__ as String).pathComponents
+        components.removeLast()
+        let bundlePath = join("/", components) + "/" + relativePath
+        return NSBundle(path: bundlePath) ?? NSBundle.mainBundle()
+    }
+}
