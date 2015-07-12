@@ -1,8 +1,6 @@
 # xcmultilingual
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/xcmultilingual`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Command line tool for Swift localizations: It parses localization files in the project and output swift file including functions with pretty complementations!
 
 ## Installation
 
@@ -22,18 +20,147 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### 1. Install xcmultilingual instructed above.
 
-## Development
+This is command line tool distributed with [RubyGems.org](https://rubygems.org/).
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake rspec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+### 2. Create empty swift file in top level of project tree.
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+Name `Multilingual.swift` in this example. **xcmultilingual** parses same and lower directries' .bundle and .lproj.
+
+```
+.
+├── DemoApp
+│   ├── AppDelegate.swift
+│   ├── Base.lproj
+│   ├── Images.xcassets
+│   ├── Info.plist
+│   ├── Loalizations
+│   ├── Multilingual.swift
+```
+
+### 3. Execute update command with destination file path
+
+```
+$ xcmultingual update -d ./DemoApp/Multilingual.swift
+```
+
+And then convenience functions will be generated in destination swift file.
+
+Example:
+
+```
+import Foundation
+
+struct Multilingual {
+    enum Localizable: String {
+        case HELLO = "HELLO"
+        case GOODMORNING = "GOODMORNING"
+        case GOODEVENING = "GOODEVENING"
+
+        func string() -> String {
+            return NSLocalizedString(rawValue, tableName: "Localizable", bundle: NSBundle.mainBundle(), value: "\(rawValue)", comment: "")
+        }
+
+        static func keys() -> [String] {
+            return ["HELLO", "GOODMORNING", "GOODEVENING"]
+        }
+
+        static func localizations() -> [String] {
+            return Localizable.keys().map { Localizable(rawValue: $0)!.string() }
+        }
+    }
+
+    enum Animal: String {
+        case CAT = "CAT"
+        case DOG = "DOG"
+        case BEAR = "BEAR"
+        case DEER = "DEER"
+
+        func string() -> String {
+            return NSLocalizedString(rawValue, tableName: "Animal", bundle: NSBundle.mainBundle(), value: "\(rawValue)", comment: "")
+        }
+
+        static func keys() -> [String] {
+            return ["CAT", "DOG", "BEAR", "DEER"]
+        }
+
+        static func localizations() -> [String] {
+            return Animal.keys().map { Animal(rawValue: $0)!.string() }
+        }
+    }
+
+    private static func bundle(relativePath: String) -> NSBundle {
+        var components = (__FILE__ as String).pathComponents
+        components.removeLast()
+        let bundlePath = join("/", components) + "/" + relativePath
+        return NSBundle(path: bundlePath) ?? NSBundle.mainBundle()
+    }
+}
+```
+
+### 4. Use with complementations!!
+
+And now, you can access your localization string with pretty good complementations.
+
+For example, when write: Multilingual, complementations are below:
+
+```
+Multilingual.Localizable
+Multilingual.Animal
+```
+
+And then, select `Multilingual.Animan`, complementations are blow:
+
+```
+Multilingual.Animal.CAT
+Multilingual.Animal.DOG
+Multilingual.Animal.BEAR
+Multilingual.Animal.DEER
+```
+
+Awesome!
+
+And print localized string is:
+
+```
+Multilingual.Animal.DOG.string()
+```
+
+Easy!
+
+## Command optoins
+
+**update:** Update swift file.
+
+options:
+- `-destination` or `-d`: Generating target file.
+- `--verbose`: Output execution logs
+- `--help` or `-h`: Show commands
+
+## Swift functions
+
+`Multilingual` is swift struct. Localization files tables are represented as enum in this struct.
+
+Each struct has `Table name` and `string()` instance function and `keys()` and `localizations()` static functions.
+
+Example:
+
+When you want to use Animal table's DOG key localization.
+
+```
+Multilingual.Animal.DOG.string()
+```
+
+When you want to show every localizations in test.
+
+```
+Multilingual.Animal.localizations()
+```
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/xcmultilingual. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
-
+Bug reports and pull requests are welcome on GitHub at https://github.com/morizotter/xcmultilingual. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
 
 ## License
 
