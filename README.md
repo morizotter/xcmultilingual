@@ -136,7 +136,8 @@ Easy!
 options:
 - `-name` or `-n`: Change Localization struct name. Default is Multilingual.
 - `--verbose`: Output execution logs
-- `--help` or `-h`: Show commands
+
+**help:** Write `update` after help and show update options' help.
 
 If you want to use `LOC` for top level struct name. `xcmultilingual update ./DemoApp/Multilingual.swift -n LOC` and then you can write like `LOC.Animal.DOG.string()`
 
