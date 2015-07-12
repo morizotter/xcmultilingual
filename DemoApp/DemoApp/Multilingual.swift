@@ -2,13 +2,13 @@
 //  Multilingual.swift
 //  xcmultilingual
 //
-//  Created by xcmultilingual on 2015-07-12 18:26:39 +0900.
+//  Created by xcmultilingual on 2015-07-12 19:20:50 +0900.
 //
 //
 
 import Foundation
 
-struct A {
+struct Multilingual {
     enum Animal: String {
         case CAT = "CAT"
         case DOG = "DOG"
