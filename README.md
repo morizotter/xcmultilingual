@@ -45,7 +45,7 @@ Named as `Multilingual.swift` in this example. **xcmultilingual** parses same an
 $ xcmultingual update ./DemoApp/Multilingual.swift
 ```
 
-And then convenience functions will be generated in destination swift file.
+And then convenient functions will be generated in destination swift file.
 
 Example:
 
