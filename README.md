@@ -138,6 +138,8 @@ options:
 - `--verbose`: Output execution logs
 - `--help` or `-h`: Show commands
 
+If you want to use `LOC` for top level struct name. `xcmultilingual update ./DemoApp/Multilingual.swift -n LOC` and then you can write like `LOC.Animal.DOG.string()`
+
 ## Swift functions
 
 `Multilingual` is swift struct. Localization files tables are represented as enum in this struct.
