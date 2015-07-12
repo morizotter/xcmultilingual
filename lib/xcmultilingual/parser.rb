@@ -13,12 +13,9 @@ module Xcmultilingual
       puts "" if @verbose
 
       destination_path = File.expand_path(@destination)
-      puts destination_path
       destination_dir = File.dirname(destination_path)
-      puts destination_dir
-
-      bundles = {}
-      Dir.glob("#{destination_dir}/**/*.lproj/**/*.strings") do |file_path|
+      
+      bundles = {}      Dir.glob("#{destination_dir}/**/*.lproj/**/*.strings") do |file_path|
         file_path = File.expand_path(file_path)
 
         # bundle
