@@ -114,7 +114,7 @@ Multilingual.Localizable
 Multilingual.Animal
 ```
 
-And then, select `Multilingual.Animan`, complementations are blow:
+And then, select `Multilingual.Animal`, complementations are blow:
 
 ```swift
 Multilingual.Animal.CAT
