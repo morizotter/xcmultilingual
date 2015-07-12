@@ -25,5 +25,12 @@ module Xcmultilingual
       puts "  See #{destination}" if options[:verbose]
       puts "" if options[:verbose]
     end
+
+    map %w[--version -v] => :__print_version
+
+    desc "--version, -v", "print the version"
+    def __print_version
+      puts Xcmultilingual::VERSION
+    end
   end
 end

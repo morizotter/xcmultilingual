@@ -14,8 +14,9 @@ module Xcmultilingual
 
       destination_path = File.expand_path(@destination)
       destination_dir = File.dirname(destination_path)
-      
-      bundles = {}      Dir.glob("#{destination_dir}/**/*.lproj/**/*.strings") do |file_path|
+
+      bundles = {}
+      Dir.glob("#{destination_dir}/**/*.lproj/**/*.strings") do |file_path|
         file_path = File.expand_path(file_path)
 
         # bundle
