@@ -137,6 +137,7 @@ Easy!
 
 options:
 - `-name` or `-n`: Change Localization struct name. Default is Multilingual.
+- `-template` or `-t`: Use custom template for generating swift file. You can copy original and change where you want!
 - `--verbose`: Output execution logs
 
 **help:** Write `update` after help and show update options' help.
