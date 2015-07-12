@@ -4,6 +4,8 @@ Command line tool for Swift localizations: It parses localization files in the p
 
 RubyGems: [xcmultilingual | RubyGems.org | your community gem host](https://rubygems.org/gems/xcmultilingual)
 
+![GIF](misc/xcmultilingual.gif)
+
 ## Installation
 
 Add this line to your application's Gemfile:
