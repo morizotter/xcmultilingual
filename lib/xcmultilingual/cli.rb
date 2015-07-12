@@ -18,6 +18,11 @@ module Xcmultilingual
       writer.name = options[:name] || "Multilingual"
       writer.verbose = options[:verbose] || false
       writer.write
+
+      puts "+ DONE" if options[:verbose]
+      puts "" if options[:verbose]
+      puts "  See #{options[:destination]}" if options[:verbose]
+      puts "" if options[:verbose]
     end
   end
 end

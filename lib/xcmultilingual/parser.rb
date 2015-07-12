@@ -9,8 +9,10 @@ module Xcmultilingual
     end
 
     def parse
-      bundles = {}
       puts "+ START PARSING" if @verbose
+      puts "" if @verbose
+
+      bundles = {}
       Dir.glob("./**/*.lproj/**/*.strings") do |file_path|
         file_path = File.expand_path(file_path)
 
@@ -47,11 +49,14 @@ module Xcmultilingual
           table = Table.new(o, p.to_a)
           bundle.tables << table
         end
-        puts "#{bundle.description}"
+        puts "#{bundle.description}" if @verbose
         bundle_data << bundle
       end
 
+      puts "" if @verbose
       puts "+ PARSE SUCCEEDED" if @verbose
+      puts "" if @verbose
+
       bundle_data
     end
 
