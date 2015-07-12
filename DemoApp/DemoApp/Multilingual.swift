@@ -14,13 +14,22 @@ struct Multilingual {
         case DOG = "DOG"
         case BEAR = "BEAR"
         case DEER = "DEER"
+        case SQUIRREL = "SQUIRREL"
+        case ELEPHANT = "ELEPHANT"
+        case GIRAFFE = "GIRAFFE"
+        case TIGER = "TIGER"
+        case LION = "LION"
+        case RABBIT = "RABBIT"
+        case RHINOCEROS = "RHINOCEROS"
+        case GORILLA = "GORILLA"
+        case MONKEY = "MONKEY"
 
         func string() -> String {
             return NSLocalizedString(rawValue, tableName: "Animal", bundle: NSBundle.mainBundle(), value: "\(rawValue)", comment: "")
         }
 
         static func keys() -> [String] {
-            return ["CAT", "DOG", "BEAR", "DEER"]
+            return ["CAT", "DOG", "BEAR", "DEER", "SQUIRREL", "ELEPHANT", "GIRAFFE", "TIGER", "LION", "RABBIT", "RHINOCEROS", "GORILLA", "MONKEY"]
         }
 
         static func localizations() -> [String] {
