@@ -29,9 +29,4 @@ struct Sampler {
     func print() {
         samples.map { println($0.string()) }
     }
-
-    func printMacros() {
-        println("FILE: \(__FILE__)")
-        println("LINE: \(__LINE__)")
-    }
 }

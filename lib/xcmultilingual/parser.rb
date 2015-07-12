@@ -12,8 +12,13 @@ module Xcmultilingual
       puts "+ START PARSING" if @verbose
       puts "" if @verbose
 
+      destination_path = File.expand_path(@destination)
+      puts destination_path
+      destination_dir = File.dirname(destination_path)
+      puts destination_dir
+
       bundles = {}
-      Dir.glob("./**/*.lproj/**/*.strings") do |file_path|
+      Dir.glob("#{destination_dir}/**/*.lproj/**/*.strings") do |file_path|
         file_path = File.expand_path(file_path)
 
         # bundle
@@ -21,7 +26,6 @@ module Xcmultilingual
           bundle_name = match["name"]
           relative_path = file_path[0, match.end("dir")]
 
-          destination_path = File.expand_path(@destination)
           relative_path = create_relative_path(destination_path, relative_path)
         else
           bundle_name = nil
@@ -36,8 +40,11 @@ module Xcmultilingual
 
         # keys
         File.readlines(file_path, encoding: 'UTF-8').each do |line|
-          if key = find_key(line)
-            bundles[bundle_name][:tables][name] << key
+          safe_line = line.scrub('?')
+          if key = find_key(safe_line)
+            safe_key = key.gsub(" ", "_")
+            bundles[bundle_name][:tables][name] << safe_key
+            puts "  PARSE: #{File.basename(file_path)} > #{line}" if @verbose
           end
         end
       end
@@ -49,6 +56,8 @@ module Xcmultilingual
           table = Table.new(o, p.to_a)
           bundle.tables << table
         end
+
+        puts "" if @verbose
         puts "#{bundle.description}" if @verbose
         bundle_data << bundle
       end
