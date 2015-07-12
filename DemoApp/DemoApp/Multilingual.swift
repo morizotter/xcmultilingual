@@ -2,27 +2,31 @@
 //  Multilingual.swift
 //  xcmultilingual
 //
-//  Created by xcmultilingual on 2015-07-12 14:33:27 +0900.
+//  Created by xcmultilingual on 2015-07-12 14:45:16 +0900.
 //
 //
 
 import Foundation
 
 struct Multilingual {
-    enum Localizable: String {
-        case HELLO = "HELLO"
+    enum Animal: String {
+        case CAT = "CAT"
+        case DOG = "DOG"
+        case BEAR = "BEAR"
+        case DEER = "DEER"
 
         func string() -> String {
-            return NSLocalizedString(rawValue, tableName: "Localizable", bundle: NSBundle.mainBundle(), value: "\(rawValue)", comment: "")
+            return NSLocalizedString(rawValue, tableName: "Animal", bundle: NSBundle.mainBundle(), value: "\(rawValue)", comment: "")
         }
     }
 
-    enum Main: String {
-        case LIZARD = "LIZARD"
-        case DOOR = "DOOR"
+    enum Localizable: String {
+        case HELLO = "HELLO"
+        case GOODMORNING = "GOODMORNING"
+        case GOODEVENING = "GOODEVENING"
 
         func string() -> String {
-            return NSLocalizedString(rawValue, tableName: "Main", bundle: NSBundle.mainBundle(), value: "\(rawValue)", comment: "")
+            return NSLocalizedString(rawValue, tableName: "Localizable", bundle: NSBundle.mainBundle(), value: "\(rawValue)", comment: "")
         }
     }
 

@@ -16,16 +16,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         let samples = [
-            Sample(desc: "Main: regular", result: Multilingual.Localizable.HELLO.string()),
-            Sample(desc: "Sample: bundle at same directory", result: Multilingual.SampleSample.SAMPLE.string()),
-            Sample(desc: "Sample2: bundle at deep directory", result: Multilingual.Sample2Sample.SAMPLE.string())
+            Sample(desc: "Localizable:  ", result: Multilingual.Localizable.HELLO.string()),
+            Sample(desc: "Main:         ", result: Multilingual.Animal.DOG.string()),
+            Sample(desc: "Sample:       ", result: Multilingual.SampleSample.SAMPLE.string()),
+            Sample(desc: "Sample2:      ", result: Multilingual.Sample2Sample.SAMPLE.string())
         ]
         
         let sampler = Sampler(samples: samples)
         sampler.printMacros()
         sampler.print()
-        
-        Multilingual.Main.LIZARD.string()
         
         return true
     }

@@ -1,0 +1,14 @@
+/* Main.strings
+  multilingual-test
+
+  Created by MORITANAOKI on 2015/07/06.
+  Copyright (c) 2015年 MORITANAOKI. All rights reserved. */
+
+"CAT" = "猫";
+
+"DOG" = "犬";
+
+"BEAR" = "熊";
+
+"DEER" = "鹿";
+
