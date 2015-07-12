@@ -2,7 +2,7 @@
 //  Multilingual.swift
 //  xcmultilingual
 //
-//  Created by xcmultilingual on 2015-07-12 14:53:48 +0900.
+//  Created by xcmultilingual on 2015-07-12 15:21:06 +0900.
 //
 //
 

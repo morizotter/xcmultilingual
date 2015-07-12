@@ -47,24 +47,19 @@ module Xcmultilingual
           table = Table.new(o, p.to_a)
           bundle.tables << table
         end
+        puts "#{bundle.description}"
         bundle_data << bundle
       end
-      puts "  BUNDLE DATA" if @verbose
-      puts "  #{bundle_data[0]}" if @verbose
-      puts "+ PARSE SUCCEEDED." if @verbose
+
+      puts "+ PARSE SUCCEEDED" if @verbose
       bundle_data
     end
 
     private
 
     def create_relative_path(dest_path, src_path)
-      puts "DESTINATION: " + dest_path
-      puts "SOURCE: " + src_path
-
       dest_split = dest_path.split("/")
       src_split = src_path.split("/")
-      puts dest_split
-      puts src_split
 
       src_extras = []
       src_split.each_with_index do |val, idx|
@@ -78,16 +73,11 @@ module Xcmultilingual
         dest_extras << val
       end
 
-      puts "EXTRAS SRC: #{src_extras}"
-      puts "EXTRAS DEST: #{dest_extras}"
-
       prefix = ""
       (dest_extras.size - 1).times do |idx|
         prefix += "../"
       end
 
-      result = prefix + src_extras.join("/")
-      puts result
       prefix + src_extras.join("/")
     end
 
