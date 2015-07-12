@@ -2,7 +2,7 @@
 //  Multilingual.swift
 //  xcmultilingual
 //
-//  Created by xcmultilingual on 2015-07-12 16:47:04 +0900.
+//  Created by xcmultilingual on 2015-07-12 17:21:42 +0900.
 //
 //
 
@@ -19,8 +19,12 @@ struct Multilingual {
             return NSLocalizedString(rawValue, tableName: "Animal", bundle: NSBundle.mainBundle(), value: "\(rawValue)", comment: "")
         }
 
-        func keys() -> [String] {
+        static func keys() -> [String] {
             return ["CAT", "DOG", "BEAR", "DEER"]
+        }
+
+        static func localizations() -> [String] {
+            return Animal.keys().map { Animal(rawValue: $0)!.string() }
         }
     }
 
@@ -33,8 +37,12 @@ struct Multilingual {
             return NSLocalizedString(rawValue, tableName: "Localizable", bundle: NSBundle.mainBundle(), value: "\(rawValue)", comment: "")
         }
 
-        func keys() -> [String] {
+        static func keys() -> [String] {
             return ["HELLO", "GOODMORNING", "GOODEVENING"]
+        }
+
+        static func localizations() -> [String] {
+            return Localizable.keys().map { Localizable(rawValue: $0)!.string() }
         }
     }
 
@@ -45,8 +53,12 @@ struct Multilingual {
             return NSLocalizedString(rawValue, tableName: "Sample", bundle: Multilingual.bundle("Loalizations/sample2.bundle"), value: "\(rawValue)", comment: "")
         }
 
-        func keys() -> [String] {
+        static func keys() -> [String] {
             return ["SAMPLE"]
+        }
+
+        static func localizations() -> [String] {
+            return Sample2Sample.keys().map { Sample2Sample(rawValue: $0)!.string() }
         }
     }
 
@@ -57,8 +69,12 @@ struct Multilingual {
             return NSLocalizedString(rawValue, tableName: "Sample", bundle: Multilingual.bundle("sample.bundle"), value: "\(rawValue)", comment: "")
         }
 
-        func keys() -> [String] {
+        static func keys() -> [String] {
             return ["SAMPLE"]
+        }
+
+        static func localizations() -> [String] {
+            return SampleSample.keys().map { SampleSample(rawValue: $0)!.string() }
         }
     }
 

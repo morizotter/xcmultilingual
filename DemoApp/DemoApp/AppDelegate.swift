@@ -22,8 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             Sample(desc: "Sample2:      ", result: Multilingual.Sample2Sample.SAMPLE.string())
         ]
         
-        println("All Bundles: \(NSBundle.allBundles())")
-        println("All Frameworks: \(NSBundle.allFrameworks())")
+        println("Animals: \(Multilingual.Animal.localizations())")
         
         let sampler = Sampler(samples: samples)
         sampler.print()
