@@ -25,7 +25,7 @@ struct Multilingual {
         case MONKEY = "MONKEY"
 
         func string() -> String {
-            return NSLocalizedString(rawValue, tableName: "Animal", bundle: NSBundle.mainBundle(), value: "\(rawValue)", comment: "")
+            return NSLocalizedString(rawValue, tableName: Animal.name, bundle: NSBundle.mainBundle(), value: rawValue, comment: "")
         }
 
         static let name = "Animal"
@@ -33,6 +33,7 @@ struct Multilingual {
         static var keys: [String] {
             return ["CAT", "DOG", "BEAR", "DEER", "SQUIRREL", "ELEPHANT", "GIRAFFE", "TIGER", "LION", "RABBIT", "RHINOCEROS", "GORILLA", "MONKEY"]
         }
+
         static var localizations: [String] {
             return Animal.keys.map { Animal(rawValue: $0)!.string() }
         }
@@ -44,7 +45,7 @@ struct Multilingual {
         case GOODEVENING = "GOODEVENING"
 
         func string() -> String {
-            return NSLocalizedString(rawValue, tableName: "Localizable", bundle: NSBundle.mainBundle(), value: "\(rawValue)", comment: "")
+            return NSLocalizedString(rawValue, tableName: Localizable.name, bundle: NSBundle.mainBundle(), value: rawValue, comment: "")
         }
 
         static let name = "Localizable"
@@ -52,6 +53,7 @@ struct Multilingual {
         static var keys: [String] {
             return ["HELLO", "GOODMORNING", "GOODEVENING"]
         }
+
         static var localizations: [String] {
             return Localizable.keys.map { Localizable(rawValue: $0)!.string() }
         }
@@ -61,7 +63,7 @@ struct Multilingual {
         case SAMPLE_2 = "SAMPLE 2"
 
         func string() -> String {
-            return NSLocalizedString(rawValue, tableName: "Sample Localization", bundle: Multilingual.bundle("Loalizations/sample2.bundle"), value: "\(rawValue)", comment: "")
+            return NSLocalizedString(rawValue, tableName: Sample2Sample_Localization.name, bundle: Multilingual.bundle("Loalizations/sample2.bundle"), value: rawValue, comment: "")
         }
 
         static let name = "Sample Localization"
@@ -69,6 +71,7 @@ struct Multilingual {
         static var keys: [String] {
             return ["SAMPLE 2"]
         }
+
         static var localizations: [String] {
             return Sample2Sample_Localization.keys.map { Sample2Sample_Localization(rawValue: $0)!.string() }
         }
@@ -78,7 +81,7 @@ struct Multilingual {
         case SAMPLE = "SAMPLE"
 
         func string() -> String {
-            return NSLocalizedString(rawValue, tableName: "Sample", bundle: Multilingual.bundle("sample.bundle"), value: "\(rawValue)", comment: "")
+            return NSLocalizedString(rawValue, tableName: SampleSample.name, bundle: Multilingual.bundle("sample.bundle"), value: rawValue, comment: "")
         }
 
         static let name = "Sample"
@@ -86,6 +89,7 @@ struct Multilingual {
         static var keys: [String] {
             return ["SAMPLE"]
         }
+
         static var localizations: [String] {
             return SampleSample.keys.map { SampleSample(rawValue: $0)!.string() }
         }
