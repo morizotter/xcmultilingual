@@ -75,7 +75,7 @@ struct Multilingual {
         case MONKEY = "MONKEY"
 
         func string() -> String {
-            return NSLocalizedString(rawValue, tableName: "Animal", bundle: NSBundle.mainBundle(), value: "\(rawValue)", comment: "")
+            return NSLocalizedString(rawValue, tableName: Animal.name, bundle: NSBundle.mainBundle(), value: rawValue, comment: "")
         }
 
         static let name = "Animal"
@@ -83,6 +83,7 @@ struct Multilingual {
         static var keys: [String] {
             return ["CAT", "DOG", "BEAR", "DEER", "SQUIRREL", "ELEPHANT", "GIRAFFE", "TIGER", "LION", "RABBIT", "RHINOCEROS", "GORILLA", "MONKEY"]
         }
+
         static var localizations: [String] {
             return Animal.keys.map { Animal(rawValue: $0)!.string() }
         }
@@ -92,7 +93,7 @@ struct Multilingual {
         case SAMPLE = "SAMPLE"
 
         func string() -> String {
-            return NSLocalizedString(rawValue, tableName: "Sample", bundle: Multilingual.bundle("sample.bundle"), value: "\(rawValue)", comment: "")
+            return NSLocalizedString(rawValue, tableName: SampleSample.name, bundle: Multilingual.bundle("sample.bundle"), value: rawValue, comment: "")
         }
 
         static let name = "Sample"
@@ -100,10 +101,12 @@ struct Multilingual {
         static var keys: [String] {
             return ["SAMPLE"]
         }
+
         static var localizations: [String] {
             return SampleSample.keys.map { SampleSample(rawValue: $0)!.string() }
         }
     }
+
 
     private static func bundle(relativePath: String) -> NSBundle {
         var components = (__FILE__ as String).pathComponents
