@@ -17,7 +17,7 @@ module Xcmultilingual
       if !File.exist?("#{@destination}")
         puts "  There is no destination file." if @verbose
         puts "\n+ FAILED UPDATING\n" if @verbose
-        return
+        exit 2
       end
 
       File.open("#{@destination}", "w") do |file|
