@@ -78,30 +78,30 @@ struct Multilingual {
             return NSLocalizedString(rawValue, tableName: "Animal", bundle: NSBundle.mainBundle(), value: "\(rawValue)", comment: "")
         }
 
-        static func keys() -> [String] {
+        static let name = "Animal"
+
+        static var keys: [String] {
             return ["CAT", "DOG", "BEAR", "DEER", "SQUIRREL", "ELEPHANT", "GIRAFFE", "TIGER", "LION", "RABBIT", "RHINOCEROS", "GORILLA", "MONKEY"]
         }
-
-        static func localizations() -> [String] {
-            return Animal.keys().map { Animal(rawValue: $0)!.string() }
+        static var localizations: [String] {
+            return Animal.keys.map { Animal(rawValue: $0)!.string() }
         }
     }
 
-    enum Localizable: String {
-        case HELLO = "HELLO"
-        case GOODMORNING = "GOODMORNING"
-        case GOODEVENING = "GOODEVENING"
+    enum SampleSample: String {
+        case SAMPLE = "SAMPLE"
 
         func string() -> String {
-            return NSLocalizedString(rawValue, tableName: "Localizable", bundle: NSBundle.mainBundle(), value: "\(rawValue)", comment: "")
+            return NSLocalizedString(rawValue, tableName: "Sample", bundle: Multilingual.bundle("sample.bundle"), value: "\(rawValue)", comment: "")
         }
 
-        static func keys() -> [String] {
-            return ["HELLO", "GOODMORNING", "GOODEVENING"]
-        }
+        static let name = "Sample"
 
-        static func localizations() -> [String] {
-            return Localizable.keys().map { Localizable(rawValue: $0)!.string() }
+        static var keys: [String] {
+            return ["SAMPLE"]
+        }
+        static var localizations: [String] {
+            return SampleSample.keys.map { SampleSample(rawValue: $0)!.string() }
         }
     }
 
@@ -161,7 +161,7 @@ If you want to use `LOC` for top level struct name. `xcmultilingual update ./Dem
 
 `Multilingual` is swift struct. Localization tables are represented as enum in this struct.
 
-Each enum has `Table name` and `string()` instance function and `keys()` and `localizations()` static functions.
+Each enum has `string()` instance function and Table `name`, `keys` and `localizations` static computed properties.
 
 Example:
 
@@ -176,6 +176,8 @@ When you want to show every localizations in test.
 ```swift
 Multilingual.Animal.localizations() // ["Cat", "Dog", "Bear", "Dear"]
 ```
+
+
 
 ## Contributing
 
