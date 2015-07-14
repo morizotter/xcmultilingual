@@ -23,7 +23,7 @@ struct <%= @name %> {
             return NSLocalizedString(rawValue, tableName: "<%= table.name %>", bundle: <%= nsbundle %>, value: "\(rawValue)", comment: "")
         }
 
-        static let title = "<%= table.name %>"
+        static let name = "<%= table.name %>"
 
         static var keys: [String] {
             return ["<%= table.keys.join("\", \"") %>"]
