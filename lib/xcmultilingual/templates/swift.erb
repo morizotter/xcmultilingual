@@ -23,12 +23,13 @@ struct <%= @name %> {
             return NSLocalizedString(rawValue, tableName: "<%= table.name %>", bundle: <%= nsbundle %>, value: "\(rawValue)", comment: "")
         }
 
-        static func keys() -> [String] {
+        static let name = "<%= table.name %>"
+
+        static var keys: [String] {
             return ["<%= table.keys.join("\", \"") %>"]
         }
-
-        static func localizations() -> [String] {
-            return <%= class_name %>.keys().map { <%= class_name %>(rawValue: $0)!.string() }
+        static var localizations: [String] {
+            return <%= class_name %>.keys.map { <%= class_name %>(rawValue: $0)!.string() }
         }
     }
 
