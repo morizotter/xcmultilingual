@@ -15,3 +15,9 @@ module Xcmultilingual
     end
   end
 end
+
+class String
+  def safe
+    return self.gsub(" ", "_")
+  end
+end
