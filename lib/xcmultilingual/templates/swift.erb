@@ -11,9 +11,9 @@ import Foundation
 struct <%= @name %> {
 <% @bundle_data.each do |bundle| -%>
 <% nsbundle = bundle.name ? "Multilingual.bundle(\"#{bundle.relative_path}\")" : "NSBundle.mainBundle()" -%>
-<% bundle_name = bundle.name.nil? ? "" : bundle.name.capitalize -%>
+<% bundle_name = bundle.name.nil? ? "" : bundle.name.gsub(" ", "_").capitalize -%>
 <% bundle.tables.each do |table| -%>
-<% class_name = bundle_name + table.name -%>
+<% class_name = bundle_name + table.name.gsub(" ", "_") -%>
     enum <%= class_name %>: String {
 <% table.keys.each do |key| -%>
         case <%= key.gsub(" ", "_") %> = "<%= key %>"
