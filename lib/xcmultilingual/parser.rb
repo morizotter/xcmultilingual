@@ -9,8 +9,7 @@ module Xcmultilingual
     end
 
     def parse
-      puts "+ START PARSING" if @verbose
-      puts "" if @verbose
+      puts "[START PARSING]" if @verbose
 
       destination_path = File.expand_path(@destination)
       destination_dir = File.dirname(destination_path)
@@ -41,7 +40,7 @@ module Xcmultilingual
           safe_line = line.scrub('?')
           if key = find_key(safe_line)
             bundles[bundle_name][:tables][name] << key
-            puts "  PARSE: #{File.basename(file_path)} > #{line}" if @verbose
+            puts "<#{File.basename(file_path)}> #{line}" if @verbose
           end
         end
       end
@@ -54,13 +53,11 @@ module Xcmultilingual
           bundle.tables << table
         end
 
-        puts "" if @verbose
         puts "#{bundle.description}" if @verbose
         bundle_data << bundle
       end
 
-      puts "" if @verbose
-      puts "+ PARSE SUCCEEDED" if @verbose
+      puts "[PARSE SUCCEEDED]" if @verbose
       puts "" if @verbose
 
       bundle_data
