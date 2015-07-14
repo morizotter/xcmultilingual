@@ -38,9 +38,9 @@ class ViewController: UITableViewController {
             localizations: Multilingual.SampleSample.localizations()
         ),
         Table(
-            name: "Sample2Sample",
-            keys: Multilingual.Sample2Sample.keys(),
-            localizations: Multilingual.Sample2Sample.localizations()
+            name: "Sample2Sample_Localization",
+            keys: Multilingual.Sample2Sample_Localization.keys(),
+            localizations: Multilingual.Sample2Sample_Localization.localizations()
         )
     ]
 }

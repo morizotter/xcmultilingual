@@ -40,8 +40,7 @@ module Xcmultilingual
         File.readlines(file_path, encoding: 'UTF-8').each do |line|
           safe_line = line.scrub('?')
           if key = find_key(safe_line)
-            safe_key = key.gsub(" ", "_")
-            bundles[bundle_name][:tables][name] << safe_key
+            bundles[bundle_name][:tables][name] << key
             puts "  PARSE: #{File.basename(file_path)} > #{line}" if @verbose
           end
         end
