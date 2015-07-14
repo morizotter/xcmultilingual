@@ -28,6 +28,7 @@ struct <%= @name %> {
         static var keys: [String] {
             return ["<%= table.keys.join("\", \"") %>"]
         }
+        
         static var localizations: [String] {
             return <%= class_name %>.keys.map { <%= class_name %>(rawValue: $0)!.string() }
         }
