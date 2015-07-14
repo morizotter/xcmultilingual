@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    xcmultilingual (0.2.1)
+    xcmultilingual (0.2.2)
       thor
 
 GEM
