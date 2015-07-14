@@ -28,7 +28,7 @@ struct Multilingual {
             return NSLocalizedString(rawValue, tableName: "Animal", bundle: NSBundle.mainBundle(), value: "\(rawValue)", comment: "")
         }
 
-        static var title = "Animal"
+        static let name = "Animal"
 
         static var keys: [String] {
             return ["CAT", "DOG", "BEAR", "DEER", "SQUIRREL", "ELEPHANT", "GIRAFFE", "TIGER", "LION", "RABBIT", "RHINOCEROS", "GORILLA", "MONKEY"]
@@ -47,7 +47,7 @@ struct Multilingual {
             return NSLocalizedString(rawValue, tableName: "Localizable", bundle: NSBundle.mainBundle(), value: "\(rawValue)", comment: "")
         }
 
-        static var title = "Localizable"
+        static let name = "Localizable"
 
         static var keys: [String] {
             return ["HELLO", "GOODMORNING", "GOODEVENING"]
@@ -64,7 +64,7 @@ struct Multilingual {
             return NSLocalizedString(rawValue, tableName: "Sample Localization", bundle: Multilingual.bundle("Loalizations/sample2.bundle"), value: "\(rawValue)", comment: "")
         }
 
-        static var title = "Sample Localization"
+        static let name = "Sample Localization"
 
         static var keys: [String] {
             return ["SAMPLE 2"]
@@ -81,7 +81,7 @@ struct Multilingual {
             return NSLocalizedString(rawValue, tableName: "Sample", bundle: Multilingual.bundle("sample.bundle"), value: "\(rawValue)", comment: "")
         }
 
-        static var title = "Sample"
+        static let name = "Sample"
 
         static var keys: [String] {
             return ["SAMPLE"]

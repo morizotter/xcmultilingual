@@ -23,24 +23,24 @@ class ViewController: UITableViewController {
     
     let tables = [
         Table(
-            name: "Localizable",
-            keys: Multilingual.Localizable.keys(),
-            localizations: Multilingual.Localizable.localizations()
+            name: Multilingual.Localizable.name,
+            keys: Multilingual.Localizable.keys,
+            localizations: Multilingual.Localizable.localizations
         ),
         Table(
-            name: "Animal",
-            keys: Multilingual.Animal.keys(),
-            localizations: Multilingual.Animal.localizations()
+            name: Multilingual.Animal.name,
+            keys: Multilingual.Animal.keys,
+            localizations: Multilingual.Animal.localizations
         ),
         Table(
-            name: "SampleSample",
-            keys: Multilingual.SampleSample.keys(),
-            localizations: Multilingual.SampleSample.localizations()
+            name: Multilingual.SampleSample.name,
+            keys: Multilingual.SampleSample.keys,
+            localizations: Multilingual.SampleSample.localizations
         ),
         Table(
-            name: "Sample2Sample_Localization",
-            keys: Multilingual.Sample2Sample_Localization.keys(),
-            localizations: Multilingual.Sample2Sample_Localization.localizations()
+            name: Multilingual.Sample2Sample_Localization.name,
+            keys: Multilingual.Sample2Sample_Localization.keys,
+            localizations: Multilingual.Sample2Sample_Localization.localizations
         )
     ]
 }
