@@ -16,7 +16,7 @@ struct <%= @name %> {
 <% class_name = bundle_name + table.name -%>
     enum <%= class_name %>: String {
 <% table.keys.each do |key| -%>
-        case <%= key %> = "<%= key %>"
+        case <%= key.gsub(" ", "_") %> = "<%= key %>"
 <% end # keys -%>
 
         func string() -> String {

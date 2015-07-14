@@ -56,14 +56,14 @@ struct Multilingual {
     }
 
     enum Sample2Sample: String {
-        case SAMPLE = "SAMPLE"
+        case SAMPLE_2 = "SAMPLE 2"
 
         func string() -> String {
             return NSLocalizedString(rawValue, tableName: "Sample", bundle: Multilingual.bundle("Loalizations/sample2.bundle"), value: "\(rawValue)", comment: "")
         }
 
         static func keys() -> [String] {
-            return ["SAMPLE"]
+            return ["SAMPLE 2"]
         }
 
         static func localizations() -> [String] {
