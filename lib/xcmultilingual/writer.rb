@@ -12,10 +12,10 @@ module Xcmultilingual
     end
 
     def write
-      puts "+ START UPDATING\n\n" if @verbose
+      puts "[START UPDATING]" if @verbose
 
       if !File.exist?("#{@destination}")
-        puts "  There is no destination file." if @verbose
+        puts "There is no destination file." if @verbose
         puts "\n+ FAILED UPDATING\n" if @verbose
         exit 2
       end
@@ -25,7 +25,7 @@ module Xcmultilingual
         body = ERB.new(File.open(path).read, nil, '-').result(binding)
         file.write(body)
       end
-      puts "+ END UPDATING\n\n" if @verbose
+      puts "[END UPDATING]" if @verbose
     end
 
     private

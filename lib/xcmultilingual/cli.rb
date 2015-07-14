@@ -20,9 +20,12 @@ module Xcmultilingual
       writer.verbose = options[:verbose] || false
       writer.write
 
-      puts "+ DONE" if options[:verbose]
+      puts "" if options[:verbose]
+      puts "+++ DONE ++++++++++++++++++++++++" if options[:verbose]
       puts "" if options[:verbose]
       puts "  See #{destination}" if options[:verbose]
+      puts "" if options[:verbose]
+      puts "+++++++++++++++++++++++++++++++++" if options[:verbose]
       puts "" if options[:verbose]
     end
 
