@@ -1,6 +1,6 @@
 # xcmultilingual
 
-Command line tool for Swift localizations: It parses localization files in the project and output swift file including functions with pretty complementations!
+Command line tool for Swift localizations: It parses localization files in the project and generate swift file including functions with neat complementations!
 
 [![Gem Version](https://badge.fury.io/rb/xcmultilingual.svg)](http://badge.fury.io/rb/xcmultilingual) [![Join the chat at https://gitter.im/morizotter/xcmultilingual](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/morizotter/xcmultilingual?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 

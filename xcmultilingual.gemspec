@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Naoki Morita"]
   spec.email         = ["namorit@gmail.com"]
 
-  spec.summary       = "Command line tool for Swift localizations: It parses localization files in project and output swift file including functions with pretty good complementations"
-  spec.description   = "Command line tool for Swift localizations: It parses localization files in the project and output swift file including functions with pretty good complementations!"
+  spec.summary       = "Command line tool for Swift localizations: It parses localization files in project and output swift file including functions with neat complementations"
+  spec.description   = "Command line tool for Swift localizations: It parses localization files in the project and generate swift file including functions with pretty good complementations!"
   spec.homepage      = "https://github.com/morizotter/xcmultilingual"
   spec.license       = "MIT"
 
