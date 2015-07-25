@@ -9,7 +9,7 @@
 import Foundation
 
 struct <%= @name %> {
-<% class_for_bundle = @name + uuid %>
+<% class_for_bundle = @name + "ClassForBundle" %>
     class <%= class_for_bundle %> {}
 <% @bundle_data.each do |bundle| -%>
 <% nsbundle = bundle.name ? "NSBundle(path: NSBundle(forClass: #{@name}.#{class_for_bundle}.self).resourcePath!.stringByAppendingPathComponent(\"#{bundle.name}.bundle\"))!" : "NSBundle(forClass: #{class_for_bundle}.self)" -%>

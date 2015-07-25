@@ -1,5 +1,4 @@
 require 'erb'
-require 'securerandom'
 
 module Xcmultilingual
   class Writer
@@ -20,8 +19,6 @@ module Xcmultilingual
         puts "\n+ FAILED UPDATING\n" if @verbose
         exit 2
       end
-
-      uuid = SecureRandom.uuid.gsub(/-/,'').upcase
 
       File.open("#{@destination}", "w") do |file|
         path = File.expand_path(@template_path)
