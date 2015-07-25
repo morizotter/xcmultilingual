@@ -21,9 +21,11 @@ module Xcmultilingual
       writer.write
 
       puts ""
-      puts "+++ DONE ++++++++++++++++++++++++"
+      puts "Generation finished."
       puts ""
-      puts "  See #{destination}"
+      puts "+++++++++++++++++++++++++++++++++"
+      puts ""
+      puts "See #{destination}"
       puts ""
       puts "+++++++++++++++++++++++++++++++++"
       puts ""
