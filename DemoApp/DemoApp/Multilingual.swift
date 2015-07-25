@@ -24,7 +24,7 @@ struct Multilingual {
         case GORILLA = "GORILLA"
         case MONKEY = "MONKEY"
 
-        func string() -> String {
+        var value: String {
             return NSLocalizedString(rawValue, tableName: Animal.name, bundle: NSBundle.mainBundle(), value: rawValue, comment: "")
         }
 
@@ -44,7 +44,7 @@ struct Multilingual {
         case GOODMORNING = "GOODMORNING"
         case GOODEVENING = "GOODEVENING"
 
-        func string() -> String {
+        var value: String {
             return NSLocalizedString(rawValue, tableName: Localizable.name, bundle: NSBundle.mainBundle(), value: rawValue, comment: "")
         }
 
@@ -62,7 +62,7 @@ struct Multilingual {
     enum Sample2Sample_Localization: String {
         case SAMPLE_2 = "SAMPLE 2"
 
-        func string() -> String {
+        var value: String {
             return NSLocalizedString(rawValue, tableName: Sample2Sample_Localization.name, bundle: Multilingual.bundle("Loalizations/sample2.bundle"), value: rawValue, comment: "")
         }
 
@@ -80,7 +80,7 @@ struct Multilingual {
     enum SampleSample: String {
         case SAMPLE = "SAMPLE"
 
-        func string() -> String {
+        var value: String {
             return NSLocalizedString(rawValue, tableName: SampleSample.name, bundle: Multilingual.bundle("sample.bundle"), value: rawValue, comment: "")
         }
 
