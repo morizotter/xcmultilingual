@@ -1,7 +1,7 @@
 module Xcmultilingual
   Bundle = Struct.new("Bundle", :name, :tables) do
     def description
-      name_description = name.nil? ? "MAIN BUNDLE" : name
+      name_description = name.nil? ? "PROJECT BUNDLE" : name
       tables_description = tables.map { |table| table.description }.join(" / ")
       "[#{name_description}]\nname: #{name_description}, tables: #{tables_description}"
     end
