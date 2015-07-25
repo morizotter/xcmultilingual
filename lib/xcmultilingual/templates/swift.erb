@@ -12,17 +12,16 @@ struct <%= @name %> {
 <% class_for_bundle = "ClassForBundle" %>
     class <%= class_for_bundle %> {}
 <% @bundle_data.each do |bundle| -%>
-<% nsbundle = bundle.name ? "Multilingual.bundle(\"#{bundle.name}.bundle\")" : "Multilingual.bundle(nil)" -%>
-<% bundle_name = bundle.name.nil? ? "" : bundle.name.safe.capitalize -%>
+<% enum_prefix = bundle.name.nil? ? "" : bundle.name.safe.capitalize -%>
 <% bundle.tables.each do |table| -%>
-<% class_name = bundle_name + table.name.safe -%>
-    enum <%= class_name %>: String {
+<% enum_name = enum_prefix + table.name.safe -%>
+    enum <%= enum_name %>: String {
 <% table.keys.each do |key| -%>
         case <%= key.safe %> = "<%= key %>"
 <% end # keys -%>
 
         var value: String {
-            return NSLocalizedString(rawValue, tableName: <%= class_name %>.name, bundle: <%= nsbundle %>, value: rawValue, comment: "")
+            return NSLocalizedString(rawValue, tableName: <%= enum_name %>.name, bundle: <%= @name %>.bundle(<%= bundle.name.nil? ? "nil" : "\"#{bundle.name}.bundle\"" %>), value: rawValue, comment: "")
         }
 
         static let name = "<%= table.name %>"
@@ -32,7 +31,7 @@ struct <%= @name %> {
         }
 
         static var localizations: [String] {
-            return <%= class_name %>.keys.map { <%= class_name %>(rawValue: $0)!.value }
+            return <%= enum_name %>.keys.map { <%= enum_name %>(rawValue: $0)!.value }
         }
     }
 
