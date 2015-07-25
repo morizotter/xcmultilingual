@@ -10,7 +10,7 @@ import Foundation
 
 struct Multilingual {
 
-    class Multilingual63A4A482722446BAB00C054751DD9E8E {}
+    class MultilingualClassForBundle {}
 
     enum Animal: String {
         case CAT = "CAT"
@@ -28,7 +28,7 @@ struct Multilingual {
         case MONKEY = "MONKEY"
 
         var value: String {
-            return NSLocalizedString(rawValue, tableName: Animal.name, bundle: NSBundle(forClass: Multilingual63A4A482722446BAB00C054751DD9E8E.self), value: rawValue, comment: "")
+            return NSLocalizedString(rawValue, tableName: Animal.name, bundle: NSBundle(forClass: MultilingualClassForBundle.self), value: rawValue, comment: "")
         }
 
         static let name = "Animal"
@@ -48,7 +48,7 @@ struct Multilingual {
         case GOODEVENING = "GOODEVENING"
 
         var value: String {
-            return NSLocalizedString(rawValue, tableName: Localizable.name, bundle: NSBundle(forClass: Multilingual63A4A482722446BAB00C054751DD9E8E.self), value: rawValue, comment: "")
+            return NSLocalizedString(rawValue, tableName: Localizable.name, bundle: NSBundle(forClass: MultilingualClassForBundle.self), value: rawValue, comment: "")
         }
 
         static let name = "Localizable"
@@ -67,7 +67,7 @@ struct Multilingual {
         case SAMPLE_2 = "SAMPLE 2"
 
         var value: String {
-            return NSLocalizedString(rawValue, tableName: Sample2Sample_Localization.name, bundle: NSBundle(path: NSBundle(forClass: Multilingual.Multilingual63A4A482722446BAB00C054751DD9E8E.self).resourcePath!.stringByAppendingPathComponent("sample2.bundle"))!, value: rawValue, comment: "")
+            return NSLocalizedString(rawValue, tableName: Sample2Sample_Localization.name, bundle: NSBundle(path: NSBundle(forClass: Multilingual.MultilingualClassForBundle.self).resourcePath!.stringByAppendingPathComponent("sample2.bundle"))!, value: rawValue, comment: "")
         }
 
         static let name = "Sample Localization"
@@ -86,7 +86,7 @@ struct Multilingual {
         case SAMPLE = "SAMPLE"
 
         var value: String {
-            return NSLocalizedString(rawValue, tableName: SampleSample.name, bundle: NSBundle(path: NSBundle(forClass: Multilingual.Multilingual63A4A482722446BAB00C054751DD9E8E.self).resourcePath!.stringByAppendingPathComponent("sample.bundle"))!, value: rawValue, comment: "")
+            return NSLocalizedString(rawValue, tableName: SampleSample.name, bundle: NSBundle(path: NSBundle(forClass: Multilingual.MultilingualClassForBundle.self).resourcePath!.stringByAppendingPathComponent("sample.bundle"))!, value: rawValue, comment: "")
         }
 
         static let name = "Sample"
