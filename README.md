@@ -74,7 +74,7 @@ struct Multilingual {
         case GORILLA = "GORILLA"
         case MONKEY = "MONKEY"
 
-        func string() -> String {
+        var value: String {
             return NSLocalizedString(rawValue, tableName: Animal.name, bundle: NSBundle.mainBundle(), value: rawValue, comment: "")
         }
 
@@ -85,14 +85,34 @@ struct Multilingual {
         }
 
         static var localizations: [String] {
-            return Animal.keys.map { Animal(rawValue: $0)!.string() }
+            return Animal.keys.map { Animal(rawValue: $0)!.value }
+        }
+    }
+
+    enum Localizable: String {
+        case HELLO = "HELLO"
+        case GOODMORNING = "GOODMORNING"
+        case GOODEVENING = "GOODEVENING"
+
+        var value: String {
+            return NSLocalizedString(rawValue, tableName: Localizable.name, bundle: NSBundle.mainBundle(), value: rawValue, comment: "")
+        }
+
+        static let name = "Localizable"
+
+        static var keys: [String] {
+            return ["HELLO", "GOODMORNING", "GOODEVENING"]
+        }
+
+        static var localizations: [String] {
+            return Localizable.keys.map { Localizable(rawValue: $0)!.value }
         }
     }
 
     enum SampleSample: String {
         case SAMPLE = "SAMPLE"
 
-        func string() -> String {
+        var value: String {
             return NSLocalizedString(rawValue, tableName: SampleSample.name, bundle: Multilingual.bundle("sample.bundle"), value: rawValue, comment: "")
         }
 
@@ -103,7 +123,7 @@ struct Multilingual {
         }
 
         static var localizations: [String] {
-            return SampleSample.keys.map { SampleSample(rawValue: $0)!.string() }
+            return SampleSample.keys.map { SampleSample(rawValue: $0)!.value }
         }
     }
 
@@ -142,7 +162,7 @@ Awesome!
 And print localized string is:
 
 ```swift
-Multilingual.Animal.DOG.string()
+Multilingual.Animal.DOG.value
 ```
 
 Easy!
@@ -158,20 +178,20 @@ options:
 
 **help:** Write `update` after help and show update options' help.
 
-If you want to use `LOC` for top level struct name. `xcmultilingual update ./DemoApp/Multilingual.swift -n LOC` and then you can write like `LOC.Animal.DOG.string()`
+If you want to use `LOC` for top level struct name. `xcmultilingual update ./DemoApp/Multilingual.swift -n LOC` and then you can write like `LOC.Animal.DOG.value`
 
 ## Swift functions
 
 `Multilingual` is swift struct. Localization tables are represented as enum in this struct.
 
-Each enum has `string()` instance function and Table `name`, `keys` and `localizations` static computed properties.
+Each enum has `value` instance computed property and Table `name`, `keys` and `localizations` static computed properties.
 
 Example:
 
 When you want to use Animal table's DOG key localization.
 
 ```swift
-Multilingual.Animal.DOG.string() // Dog
+Multilingual.Animal.DOG.value // Dog
 ```
 
 When you want to show every localizations in test.
