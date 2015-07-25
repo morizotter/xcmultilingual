@@ -9,9 +9,6 @@
 import Foundation
 
 struct <%= @name %> {
-<% class_for_bundle = "ClassForBundle" %>
-    class <%= class_for_bundle %> {}
-    
 <% @bundle_data.each do |bundle| -%>
 <% enum_prefix = bundle.name.nil? ? "" : bundle.name.safe.capitalize -%>
 <% bundle.tables.each do |table| -%>
@@ -41,6 +38,9 @@ struct <%= @name %> {
 }
 
 extension <%= @name %> {
+<% class_for_bundle = "ClassForBundle" -%>
+    class <%= class_for_bundle %> {}
+
     private static func bundle(bundleFile: String?) -> NSBundle {
         if let bundleFile = bundleFile {
             let path = NSBundle(forClass: <%= @name %>.ClassForBundle.self).resourcePath!.stringByAppendingPathComponent(bundleFile)

@@ -9,9 +9,6 @@
 import Foundation
 
 struct Multilingual {
-
-    class ClassForBundle {}
-    
     enum Animal: String {
         case CAT = "CAT"
         case DOG = "DOG"
@@ -101,6 +98,8 @@ struct Multilingual {
 }
 
 extension Multilingual {
+    class ClassForBundle {}
+
     private static func bundle(bundleFile: String?) -> NSBundle {
         if let bundleFile = bundleFile {
             let path = NSBundle(forClass: Multilingual.ClassForBundle.self).resourcePath!.stringByAppendingPathComponent(bundleFile)
