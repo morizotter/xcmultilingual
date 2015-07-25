@@ -11,6 +11,7 @@ import Foundation
 struct <%= @name %> {
 <% class_for_bundle = "ClassForBundle" %>
     class <%= class_for_bundle %> {}
+    
 <% @bundle_data.each do |bundle| -%>
 <% enum_prefix = bundle.name.nil? ? "" : bundle.name.safe.capitalize -%>
 <% bundle.tables.each do |table| -%>

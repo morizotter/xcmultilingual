@@ -11,6 +11,7 @@ import Foundation
 struct Multilingual {
 
     class ClassForBundle {}
+    
     enum Animal: String {
         case CAT = "CAT"
         case DOG = "DOG"
