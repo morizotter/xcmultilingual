@@ -30,7 +30,7 @@ struct <%= @name %> {
         }
 
         static var localizations: [String] {
-            return <%= class_name %>.keys.map { <%= class_name %>(rawValue: $0)!.string() }
+            return <%= class_name %>.keys.map { <%= class_name %>(rawValue: $0)!.value }
         }
     }
 

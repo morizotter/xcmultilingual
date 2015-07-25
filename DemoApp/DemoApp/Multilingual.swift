@@ -35,7 +35,7 @@ struct Multilingual {
         }
 
         static var localizations: [String] {
-            return Animal.keys.map { Animal(rawValue: $0)!.string() }
+            return Animal.keys.map { Animal(rawValue: $0)!.value }
         }
     }
 
@@ -55,7 +55,7 @@ struct Multilingual {
         }
 
         static var localizations: [String] {
-            return Localizable.keys.map { Localizable(rawValue: $0)!.string() }
+            return Localizable.keys.map { Localizable(rawValue: $0)!.value }
         }
     }
 
@@ -73,7 +73,7 @@ struct Multilingual {
         }
 
         static var localizations: [String] {
-            return Sample2Sample_Localization.keys.map { Sample2Sample_Localization(rawValue: $0)!.string() }
+            return Sample2Sample_Localization.keys.map { Sample2Sample_Localization(rawValue: $0)!.value }
         }
     }
 
@@ -91,7 +91,7 @@ struct Multilingual {
         }
 
         static var localizations: [String] {
-            return SampleSample.keys.map { SampleSample(rawValue: $0)!.string() }
+            return SampleSample.keys.map { SampleSample(rawValue: $0)!.value }
         }
     }
 
