@@ -67,6 +67,9 @@ Example:
 import Foundation
 
 struct Multilingual {
+
+    class ClassForBundle {}
+
     enum Animal: String {
         case CAT = "CAT"
         case DOG = "DOG"
@@ -83,7 +86,7 @@ struct Multilingual {
         case MONKEY = "MONKEY"
 
         var value: String {
-            return NSLocalizedString(rawValue, tableName: Animal.name, bundle: NSBundle.mainBundle(), value: rawValue, comment: "")
+            return NSLocalizedString(rawValue, tableName: Animal.name, bundle: NSBundle(forClass: ClassForBundle.self), value: rawValue, comment: "")
         }
 
         static let name = "Animal"
@@ -103,7 +106,7 @@ struct Multilingual {
         case GOODEVENING = "GOODEVENING"
 
         var value: String {
-            return NSLocalizedString(rawValue, tableName: Localizable.name, bundle: NSBundle.mainBundle(), value: rawValue, comment: "")
+            return NSLocalizedString(rawValue, tableName: Localizable.name, bundle: NSBundle(forClass: ClassForBundle.self), value: rawValue, comment: "")
         }
 
         static let name = "Localizable"
@@ -121,7 +124,7 @@ struct Multilingual {
         case SAMPLE = "SAMPLE"
 
         var value: String {
-            return NSLocalizedString(rawValue, tableName: SampleSample.name, bundle: Multilingual.bundle("sample.bundle"), value: rawValue, comment: "")
+            return NSLocalizedString(rawValue, tableName: SampleSample.name, bundle: NSBundle(path: NSBundle(forClass: Multilingual.ClassForBundle.self).resourcePath!.stringByAppendingPathComponent("sample.bundle"))!, value: rawValue, comment: "")
         }
 
         static let name = "Sample"
@@ -135,13 +138,6 @@ struct Multilingual {
         }
     }
 
-
-    private static func bundle(relativePath: String) -> NSBundle {
-        var components = (__FILE__ as String).pathComponents
-        components.removeLast()
-        let bundlePath = join("/", components) + "/" + relativePath
-        return NSBundle(path: bundlePath) ?? NSBundle.mainBundle()
-    }
 }
 ```
 

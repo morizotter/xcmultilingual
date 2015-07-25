@@ -20,13 +20,15 @@ module Xcmultilingual
       writer.verbose = options[:verbose] || false
       writer.write
 
-      puts "" if options[:verbose]
-      puts "+++ DONE ++++++++++++++++++++++++" if options[:verbose]
-      puts "" if options[:verbose]
-      puts "  See #{destination}" if options[:verbose]
-      puts "" if options[:verbose]
-      puts "+++++++++++++++++++++++++++++++++" if options[:verbose]
-      puts "" if options[:verbose]
+      puts ""
+      puts "Generation finished."
+      puts ""
+      puts "+++++++++++++++++++++++++++++++++"
+      puts ""
+      puts "See #{destination}"
+      puts ""
+      puts "+++++++++++++++++++++++++++++++++"
+      puts ""
     end
 
     map %w[--version -v] => :__print_version

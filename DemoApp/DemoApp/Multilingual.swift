@@ -9,6 +9,9 @@
 import Foundation
 
 struct Multilingual {
+
+    class ClassForBundle {}
+    
     enum Animal: String {
         case CAT = "CAT"
         case DOG = "DOG"
@@ -25,7 +28,7 @@ struct Multilingual {
         case MONKEY = "MONKEY"
 
         var value: String {
-            return NSLocalizedString(rawValue, tableName: Animal.name, bundle: NSBundle.mainBundle(), value: rawValue, comment: "")
+            return NSLocalizedString(rawValue, tableName: Animal.name, bundle: Multilingual.bundle(nil), value: rawValue, comment: "")
         }
 
         static let name = "Animal"
@@ -45,7 +48,7 @@ struct Multilingual {
         case GOODEVENING = "GOODEVENING"
 
         var value: String {
-            return NSLocalizedString(rawValue, tableName: Localizable.name, bundle: NSBundle.mainBundle(), value: rawValue, comment: "")
+            return NSLocalizedString(rawValue, tableName: Localizable.name, bundle: Multilingual.bundle(nil), value: rawValue, comment: "")
         }
 
         static let name = "Localizable"
@@ -63,7 +66,7 @@ struct Multilingual {
         case SAMPLE_2 = "SAMPLE 2"
 
         var value: String {
-            return NSLocalizedString(rawValue, tableName: Sample2Sample_Localization.name, bundle: Multilingual.bundle("Loalizations/sample2.bundle"), value: rawValue, comment: "")
+            return NSLocalizedString(rawValue, tableName: Sample2Sample_Localization.name, bundle: Multilingual.bundle("sample2.bundle"), value: rawValue, comment: "")
         }
 
         static let name = "Sample Localization"
@@ -95,11 +98,15 @@ struct Multilingual {
         }
     }
 
+}
 
-    private static func bundle(relativePath: String) -> NSBundle {
-        var components = (__FILE__ as String).pathComponents
-        components.removeLast()
-        let bundlePath = join("/", components) + "/" + relativePath
-        return NSBundle(path: bundlePath) ?? NSBundle.mainBundle()
+extension Multilingual {
+    private static func bundle(bundleFile: String?) -> NSBundle {
+        if let bundleFile = bundleFile {
+            let path = NSBundle(forClass: Multilingual.ClassForBundle.self).resourcePath!.stringByAppendingPathComponent(bundleFile)
+            return NSBundle(path: path)!
+        }
+
+        return NSBundle(forClass: ClassForBundle.self)
     }
 }

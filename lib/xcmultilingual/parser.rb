@@ -21,15 +21,11 @@ module Xcmultilingual
         # bundle
         if match = file_path.match(/(?<dir>(?<name>[^\/]*).bundle)/)
           bundle_name = match["name"]
-          relative_path = file_path[0, match.end("dir")]
-
-          relative_path = create_relative_path(destination_path, relative_path)
         else
           bundle_name = nil
-          relative_path = nil
         end
 
-        bundles[bundle_name] = {:relative_path => relative_path, :name => bundle_name, :tables => {}} unless bundles[bundle_name]
+        bundles[bundle_name] = {:name => bundle_name, :tables => {}} unless bundles[bundle_name]
 
         # name
         name = File.basename(file_path, ".strings")
@@ -47,7 +43,7 @@ module Xcmultilingual
 
       bundle_data = []
       bundles.each do |k, v|
-        bundle = Bundle.new(v[:relative_path], v[:name], [])
+        bundle = Bundle.new(v[:name], [])
         v[:tables].each do |o, p|
           table = Table.new(o, p.to_a)
           bundle.tables << table
@@ -64,30 +60,6 @@ module Xcmultilingual
     end
 
     private
-
-    def create_relative_path(dest_path, src_path)
-      dest_split = dest_path.split("/")
-      src_split = src_path.split("/")
-
-      src_extras = []
-      src_split.each_with_index do |val, idx|
-        next if val == dest_split[idx]
-        src_extras << val
-      end
-
-      dest_extras = []
-      dest_split.each_with_index do |val, idx|
-        next if val == src_split[idx]
-        dest_extras << val
-      end
-
-      prefix = ""
-      (dest_extras.size - 1).times do |idx|
-        prefix += "../"
-      end
-
-      prefix + src_extras.join("/")
-    end
 
     def find_key(line)
       if match = line.match(/^\"(.*)\"\s*=\s*\"(.*)\"\;$/)
