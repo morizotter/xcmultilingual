@@ -19,7 +19,7 @@ struct <%= @name %> {
         case <%= key.safe %> = "<%= key %>"
 <% end # keys -%>
 
-        func string() -> String {
+        var value: String {
             return NSLocalizedString(rawValue, tableName: <%= class_name %>.name, bundle: <%= nsbundle %>, value: rawValue, comment: "")
         }
 
