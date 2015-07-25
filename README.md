@@ -8,6 +8,14 @@ RubyGems: [xcmultilingual](https://rubygems.org/gems/xcmultilingual)
 
 ![GIF](misc/xcmultilingual.gif)
 
+## CANGELOG
+
+See [CANGELOG](CHANGELOG.md) for update information.
+
+### Recent breaking changes
+
+- **0.3.0** Getting localized value now from `value` computed property. It was `string()` function.
+
 ## Installation
 
 Add this line to your application's Gemfile:
