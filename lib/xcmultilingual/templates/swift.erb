@@ -12,8 +12,7 @@ struct <%= @name %> {
 <% class_for_bundle = "ClassForBundle" %>
     class <%= class_for_bundle %> {}
 <% @bundle_data.each do |bundle| -%>
-<% nsbundle = bundle.name ? "NSBundle(path: NSBundle(forClass: #{@name}.#{class_for_bundle}.self).resourcePath!.stringByAppendingPathComponent(\"#{bundle.name}.bundle\"))!" : "NSBundle(forClass: #{class_for_bundle}.self)" -%>
-
+<% nsbundle = bundle.name ? "Multilingual.bundle(\"#{bundle.name}.bundle\")" : "Multilingual.bundle(nil)" -%>
 <% bundle_name = bundle.name.nil? ? "" : bundle.name.safe.capitalize -%>
 <% bundle.tables.each do |table| -%>
 <% class_name = bundle_name + table.name.safe -%>
@@ -39,4 +38,15 @@ struct <%= @name %> {
 
 <%- end # table -%>
 <%- end # bundle -%>
+}
+
+extension <%= @name %> {
+    private static func bundle(bundleFile: String?) -> NSBundle {
+        if let bundleFile = bundleFile {
+            let path = NSBundle(forClass: <%= @name %>.ClassForBundle.self).resourcePath!.stringByAppendingPathComponent(bundleFile)
+            return NSBundle(path: path)!
+        }
+
+        return NSBundle(forClass: ClassForBundle.self)
+    }
 }
