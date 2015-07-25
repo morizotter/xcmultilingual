@@ -24,7 +24,7 @@ struct Multilingual {
         case GORILLA = "GORILLA"
         case MONKEY = "MONKEY"
 
-        func string() -> String {
+        var value: String {
             return NSLocalizedString(rawValue, tableName: Animal.name, bundle: NSBundle.mainBundle(), value: rawValue, comment: "")
         }
 
@@ -35,7 +35,7 @@ struct Multilingual {
         }
 
         static var localizations: [String] {
-            return Animal.keys.map { Animal(rawValue: $0)!.string() }
+            return Animal.keys.map { Animal(rawValue: $0)!.value }
         }
     }
 
@@ -44,7 +44,7 @@ struct Multilingual {
         case GOODMORNING = "GOODMORNING"
         case GOODEVENING = "GOODEVENING"
 
-        func string() -> String {
+        var value: String {
             return NSLocalizedString(rawValue, tableName: Localizable.name, bundle: NSBundle.mainBundle(), value: rawValue, comment: "")
         }
 
@@ -55,14 +55,14 @@ struct Multilingual {
         }
 
         static var localizations: [String] {
-            return Localizable.keys.map { Localizable(rawValue: $0)!.string() }
+            return Localizable.keys.map { Localizable(rawValue: $0)!.value }
         }
     }
 
     enum Sample2Sample_Localization: String {
         case SAMPLE_2 = "SAMPLE 2"
 
-        func string() -> String {
+        var value: String {
             return NSLocalizedString(rawValue, tableName: Sample2Sample_Localization.name, bundle: Multilingual.bundle("Loalizations/sample2.bundle"), value: rawValue, comment: "")
         }
 
@@ -73,14 +73,14 @@ struct Multilingual {
         }
 
         static var localizations: [String] {
-            return Sample2Sample_Localization.keys.map { Sample2Sample_Localization(rawValue: $0)!.string() }
+            return Sample2Sample_Localization.keys.map { Sample2Sample_Localization(rawValue: $0)!.value }
         }
     }
 
     enum SampleSample: String {
         case SAMPLE = "SAMPLE"
 
-        func string() -> String {
+        var value: String {
             return NSLocalizedString(rawValue, tableName: SampleSample.name, bundle: Multilingual.bundle("sample.bundle"), value: rawValue, comment: "")
         }
 
@@ -91,7 +91,7 @@ struct Multilingual {
         }
 
         static var localizations: [String] {
-            return SampleSample.keys.map { SampleSample(rawValue: $0)!.string() }
+            return SampleSample.keys.map { SampleSample(rawValue: $0)!.value }
         }
     }
 

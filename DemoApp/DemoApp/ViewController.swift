@@ -43,6 +43,12 @@ class ViewController: UITableViewController {
             localizations: Multilingual.Sample2Sample_Localization.localizations
         )
     ]
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        println("\(Multilingual.Localizable.GOODMORNING.value)")
+    }
 }
 
 // MARK: UITableVIewDataSource
