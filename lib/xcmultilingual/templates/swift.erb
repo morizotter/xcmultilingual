@@ -9,8 +9,11 @@
 import Foundation
 
 struct <%= @name %> {
+<% class_for_bundle = @name + uuid %>
+    class <%= class_for_bundle %> {}
 <% @bundle_data.each do |bundle| -%>
-<% nsbundle = bundle.name ? "Multilingual.bundle(\"#{bundle.relative_path}\")" : "NSBundle.mainBundle()" -%>
+<% nsbundle = bundle.name ? "NSBundle(path: NSBundle(forClass: #{@name}.#{class_for_bundle}.self).resourcePath!.stringByAppendingPathComponent(\"#{bundle.name}.bundle\"))!" : "NSBundle(forClass: #{class_for_bundle}.self)" -%>
+
 <% bundle_name = bundle.name.nil? ? "" : bundle.name.safe.capitalize -%>
 <% bundle.tables.each do |table| -%>
 <% class_name = bundle_name + table.name.safe -%>
